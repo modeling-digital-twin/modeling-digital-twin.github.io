@@ -1,0 +1,1605 @@
+
+<!doctype html>
+<html lang="en" class="no-js">
+  <head>
+    
+      <meta charset="utf-8">
+      <meta name="viewport" content="width=device-width,initial-scale=1">
+      
+        <meta name="description" content="Documentation for IoT Modelling and Digital Twin Implementation">
+      
+      
+        <meta name="author" content="Likhith Kanigolla">
+      
+      
+        <link rel="canonical" href="https://modeling-digital-twin.github.io/essentials/">
+      
+      
+        <link rel="prev" href="../hardware_modeling_language_%28hwml%29_guide/">
+      
+      
+        <link rel="next" href="../simulate_motion_based_lighting_system_in_cup_carbon/">
+      
+      
+      <link rel="icon" href="../assets/images/favicon.png">
+      <meta name="generator" content="mkdocs-1.6.1, mkdocs-material-9.6.12">
+    
+    
+      
+        <title>Essentials - Modelling for Digital Twins</title>
+      
+    
+    
+      <link rel="stylesheet" href="../assets/stylesheets/main.2afb09e1.min.css">
+      
+        
+        <link rel="stylesheet" href="../assets/stylesheets/palette.06af60db.min.css">
+      
+      
+
+
+    
+    
+      
+    
+    
+      
+        
+        
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:300,300i,400,400i,700,700i%7CRoboto+Mono:400,400i,700,700i&display=fallback">
+        <style>:root{--md-text-font:"Roboto";--md-code-font:"Roboto Mono"}</style>
+      
+    
+    
+    <script>__md_scope=new URL("..",location),__md_hash=e=>[...e].reduce(((e,_)=>(e<<5)-e+_.charCodeAt(0)),0),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
+    
+      
+
+    
+    
+    
+  </head>
+  
+  
+    
+    
+      
+    
+    
+    
+    
+    <body dir="ltr" data-md-color-scheme="default" data-md-color-primary="indigo" data-md-color-accent="indigo">
+  
+    
+    <input class="md-toggle" data-md-toggle="drawer" type="checkbox" id="__drawer" autocomplete="off">
+    <input class="md-toggle" data-md-toggle="search" type="checkbox" id="__search" autocomplete="off">
+    <label class="md-overlay" for="__drawer"></label>
+    <div data-md-component="skip">
+      
+        
+        <a href="#essentials" class="md-skip">
+          Skip to content
+        </a>
+      
+    </div>
+    <div data-md-component="announce">
+      
+    </div>
+    
+    
+      
+
+<header class="md-header" data-md-component="header">
+  <nav class="md-header__inner md-grid" aria-label="Header">
+    <a href=".." title="Modelling for Digital Twins" class="md-header__button md-logo" aria-label="Modelling for Digital Twins" data-md-component="logo">
+      
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54"/></svg>
+
+    </a>
+    <label class="md-header__button md-icon" for="__drawer">
+      
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M3 6h18v2H3zm0 5h18v2H3zm0 5h18v2H3z"/></svg>
+    </label>
+    <div class="md-header__title" data-md-component="header-title">
+      <div class="md-header__ellipsis">
+        <div class="md-header__topic">
+          <span class="md-ellipsis">
+            Modelling for Digital Twins
+          </span>
+        </div>
+        <div class="md-header__topic" data-md-component="header-topic">
+          <span class="md-ellipsis">
+            
+              Essentials
+            
+          </span>
+        </div>
+      </div>
+    </div>
+    
+      
+        <form class="md-header__option" data-md-component="palette">
+  
+    
+    
+    
+    <input class="md-option" data-md-color-media="(prefers-color-scheme: light)" data-md-color-scheme="default" data-md-color-primary="indigo" data-md-color-accent="indigo"  aria-label="Switch to dark mode"  type="radio" name="__palette" id="__palette_0">
+    
+      <label class="md-header__button md-icon" title="Switch to dark mode" for="__palette_1" hidden>
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="m17.75 4.09-2.53 1.94.91 3.06-2.63-1.81-2.63 1.81.91-3.06-2.53-1.94L12.44 4l1.06-3 1.06 3zm3.5 6.91-1.64 1.25.59 1.98-1.7-1.17-1.7 1.17.59-1.98L15.75 11l2.06-.05L18.5 9l.69 1.95zm-2.28 4.95c.83-.08 1.72 1.1 1.19 1.85-.32.45-.66.87-1.08 1.27C15.17 23 8.84 23 4.94 19.07c-3.91-3.9-3.91-10.24 0-14.14.4-.4.82-.76 1.27-1.08.75-.53 1.93.36 1.85 1.19-.27 2.86.69 5.83 2.89 8.02a9.96 9.96 0 0 0 8.02 2.89m-1.64 2.02a12.08 12.08 0 0 1-7.8-3.47c-2.17-2.19-3.33-5-3.49-7.82-2.81 3.14-2.7 7.96.31 10.98 3.02 3.01 7.84 3.12 10.98.31"/></svg>
+      </label>
+    
+  
+    
+    
+    
+    <input class="md-option" data-md-color-media="(prefers-color-scheme: dark)" data-md-color-scheme="slate" data-md-color-primary="blue" data-md-color-accent="blue"  aria-label="Switch to light mode"  type="radio" name="__palette" id="__palette_1">
+    
+      <label class="md-header__button md-icon" title="Switch to light mode" for="__palette_0" hidden>
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 7a5 5 0 0 1 5 5 5 5 0 0 1-5 5 5 5 0 0 1-5-5 5 5 0 0 1 5-5m0 2a3 3 0 0 0-3 3 3 3 0 0 0 3 3 3 3 0 0 0 3-3 3 3 0 0 0-3-3m0-7 2.39 3.42C13.65 5.15 12.84 5 12 5s-1.65.15-2.39.42zM3.34 7l4.16-.35A7.2 7.2 0 0 0 5.94 8.5c-.44.74-.69 1.5-.83 2.29zm.02 10 1.76-3.77a7.131 7.131 0 0 0 2.38 4.14zM20.65 7l-1.77 3.79a7.02 7.02 0 0 0-2.38-4.15zm-.01 10-4.14.36c.59-.51 1.12-1.14 1.54-1.86.42-.73.69-1.5.83-2.29zM12 22l-2.41-3.44c.74.27 1.55.44 2.41.44.82 0 1.63-.17 2.37-.44z"/></svg>
+      </label>
+    
+  
+</form>
+      
+    
+    
+      <script>var palette=__md_get("__palette");if(palette&&palette.color){if("(prefers-color-scheme)"===palette.color.media){var media=matchMedia("(prefers-color-scheme: light)"),input=document.querySelector(media.matches?"[data-md-color-media='(prefers-color-scheme: light)']":"[data-md-color-media='(prefers-color-scheme: dark)']");palette.color.media=input.getAttribute("data-md-color-media"),palette.color.scheme=input.getAttribute("data-md-color-scheme"),palette.color.primary=input.getAttribute("data-md-color-primary"),palette.color.accent=input.getAttribute("data-md-color-accent")}for(var[key,value]of Object.entries(palette.color))document.body.setAttribute("data-md-color-"+key,value)}</script>
+    
+    
+    
+      
+      
+        <label class="md-header__button md-icon" for="__search">
+          
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.52 6.52 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5"/></svg>
+        </label>
+        <div class="md-search" data-md-component="search" role="dialog">
+  <label class="md-search__overlay" for="__search"></label>
+  <div class="md-search__inner" role="search">
+    <form class="md-search__form" name="search">
+      <input type="text" class="md-search__input" name="query" aria-label="Search" placeholder="Search" autocapitalize="off" autocorrect="off" autocomplete="off" spellcheck="false" data-md-component="search-query" required>
+      <label class="md-search__icon md-icon" for="__search">
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.52 6.52 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5"/></svg>
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11z"/></svg>
+      </label>
+      <nav class="md-search__options" aria-label="Search">
+        
+        <button type="reset" class="md-search__icon md-icon" title="Clear" aria-label="Clear" tabindex="-1">
+          
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M19 6.41 17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12z"/></svg>
+        </button>
+      </nav>
+      
+        <div class="md-search__suggest" data-md-component="search-suggest"></div>
+      
+    </form>
+    <div class="md-search__output">
+      <div class="md-search__scrollwrap" tabindex="0" data-md-scrollfix>
+        <div class="md-search-result" data-md-component="search-result">
+          <div class="md-search-result__meta">
+            Initializing search
+          </div>
+          <ol class="md-search-result__list" role="presentation"></ol>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+      
+    
+    
+      <div class="md-header__source">
+        <a href="https://github.com/likhithkanigolla/IIITS-Demo" title="Go to repository" class="md-source" data-md-component="source">
+  <div class="md-source__icon md-icon">
+    
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512"><!--! Font Awesome Free 6.7.2 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2024 Fonticons, Inc.--><path d="M439.55 236.05 244 40.45a28.87 28.87 0 0 0-40.81 0l-40.66 40.63 51.52 51.52c27.06-9.14 52.68 16.77 43.39 43.68l49.66 49.66c34.23-11.8 61.18 31 35.47 56.69-26.49 26.49-70.21-2.87-56-37.34L240.22 199v121.85c25.3 12.54 22.26 41.85 9.08 55a34.34 34.34 0 0 1-48.55 0c-17.57-17.6-11.07-46.91 11.25-56v-123c-20.8-8.51-24.6-30.74-18.64-45L142.57 101 8.45 235.14a28.86 28.86 0 0 0 0 40.81l195.61 195.6a28.86 28.86 0 0 0 40.8 0l194.69-194.69a28.86 28.86 0 0 0 0-40.81"/></svg>
+  </div>
+  <div class="md-source__repository">
+    Modelling-Digital-Twins
+  </div>
+</a>
+      </div>
+    
+  </nav>
+  
+</header>
+    
+    <div class="md-container" data-md-component="container">
+      
+      
+        
+          
+            
+<nav class="md-tabs" aria-label="Tabs" data-md-component="tabs">
+  <div class="md-grid">
+    <ul class="md-tabs__list">
+      
+        
+  
+  
+  
+  
+    <li class="md-tabs__item">
+      <a href=".." class="md-tabs__link">
+        
+  
+  
+    
+  
+  Home
+
+      </a>
+    </li>
+  
+
+      
+        
+  
+  
+  
+  
+    
+    
+      <li class="md-tabs__item">
+        <a href="../caps_installation_guide/" class="md-tabs__link">
+          
+  
+  
+  Installation
+
+        </a>
+      </li>
+    
+  
+
+      
+        
+  
+  
+  
+  
+    
+    
+      <li class="md-tabs__item">
+        <a href="../pythonpdevs_installation_guide/" class="md-tabs__link">
+          
+  
+  
+  PythonPDEVS
+
+        </a>
+      </li>
+    
+  
+
+      
+        
+  
+  
+  
+  
+    
+    
+      <li class="md-tabs__item">
+        <a href="../saml/" class="md-tabs__link">
+          
+  
+  
+  SAML
+
+        </a>
+      </li>
+    
+  
+
+      
+        
+  
+  
+  
+  
+    
+    
+      <li class="md-tabs__item">
+        <a href="../hwml/" class="md-tabs__link">
+          
+  
+  
+  HWML
+
+        </a>
+      </li>
+    
+  
+
+      
+        
+  
+  
+  
+    
+  
+  
+    
+    
+      <li class="md-tabs__item md-tabs__item--active">
+        <a href="./" class="md-tabs__link">
+          
+  
+  
+  Cup Carbon
+
+        </a>
+      </li>
+    
+  
+
+      
+    </ul>
+  </div>
+</nav>
+          
+        
+      
+      <main class="md-main" data-md-component="main">
+        <div class="md-main__inner md-grid">
+          
+            
+              
+              <div class="md-sidebar md-sidebar--primary" data-md-component="sidebar" data-md-type="navigation" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+
+  
+
+
+<nav class="md-nav md-nav--primary md-nav--lifted" aria-label="Navigation" data-md-level="0">
+  <label class="md-nav__title" for="__drawer">
+    <a href=".." title="Modelling for Digital Twins" class="md-nav__button md-logo" aria-label="Modelling for Digital Twins" data-md-component="logo">
+      
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54"/></svg>
+
+    </a>
+    Modelling for Digital Twins
+  </label>
+  
+    <div class="md-nav__source">
+      <a href="https://github.com/likhithkanigolla/IIITS-Demo" title="Go to repository" class="md-source" data-md-component="source">
+  <div class="md-source__icon md-icon">
+    
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512"><!--! Font Awesome Free 6.7.2 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2024 Fonticons, Inc.--><path d="M439.55 236.05 244 40.45a28.87 28.87 0 0 0-40.81 0l-40.66 40.63 51.52 51.52c27.06-9.14 52.68 16.77 43.39 43.68l49.66 49.66c34.23-11.8 61.18 31 35.47 56.69-26.49 26.49-70.21-2.87-56-37.34L240.22 199v121.85c25.3 12.54 22.26 41.85 9.08 55a34.34 34.34 0 0 1-48.55 0c-17.57-17.6-11.07-46.91 11.25-56v-123c-20.8-8.51-24.6-30.74-18.64-45L142.57 101 8.45 235.14a28.86 28.86 0 0 0 0 40.81l195.61 195.6a28.86 28.86 0 0 0 40.8 0l194.69-194.69a28.86 28.86 0 0 0 0-40.81"/></svg>
+  </div>
+  <div class="md-source__repository">
+    Modelling-Digital-Twins
+  </div>
+</a>
+    </div>
+  
+  <ul class="md-nav__list" data-md-scrollfix>
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href=".." class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Home
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+    
+    
+      
+      
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_2" >
+        
+          
+          <label class="md-nav__link" for="__nav_2" id="__nav_2_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    Installation
+    
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_2_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_2">
+            <span class="md-nav__icon md-icon"></span>
+            Installation
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../caps_installation_guide/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    CAPS Installation Guide
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../eclipse_caps_integration_guide/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Eclipse CAPS Integration Guide
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../cupcarbon_installation_guide/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    CupCarbon Installation Guide
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+    
+    
+      
+      
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_3" >
+        
+          
+          <label class="md-nav__link" for="__nav_3" id="__nav_3_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    PythonPDEVS
+    
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_3_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_3">
+            <span class="md-nav__icon md-icon"></span>
+            PythonPDEVS
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../pythonpdevs_installation_guide/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    PythonPDEVS Installation Guide
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../pythonpdevs/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    PythonPDEVS
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../pythonpdevs_introduction/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    PythonPDEVS Introduction
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../pydevs_motion_light_system/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    PyDEVS Motion Light System
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+    
+    
+      
+      
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_4" >
+        
+          
+          <label class="md-nav__link" for="__nav_4" id="__nav_4_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    SAML
+    
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_4_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_4">
+            <span class="md-nav__icon md-icon"></span>
+            SAML
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../saml/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    SAML
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../saml_%28software_architecture_modeling_language%29_guide/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    SAML (Software Architecture Modeling Language) Guide
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../saml_for_motion_based_lighting_system/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    SAML for Motion Based Lighting System
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../saml_for_temperature_based_window_control/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    SAML for Temperature based window control
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+    
+    
+      
+      
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_5" >
+        
+          
+          <label class="md-nav__link" for="__nav_5" id="__nav_5_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    HWML
+    
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_5_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_5">
+            <span class="md-nav__icon md-icon"></span>
+            HWML
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../hwml/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    HWML
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../hardware_modeling_language_%28hwml%29_guide/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Hardware Modeling Language (HWML) Guide
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+    
+  
+  
+  
+    
+    
+    
+    
+      
+        
+        
+      
+      
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--active md-nav__item--section md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_6" checked>
+        
+          
+          <label class="md-nav__link" for="__nav_6" id="__nav_6_label" tabindex="">
+            
+  
+  
+  <span class="md-ellipsis">
+    Cup Carbon
+    
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_6_label" aria-expanded="true">
+          <label class="md-nav__title" for="__nav_6">
+            <span class="md-nav__icon md-icon"></span>
+            Cup Carbon
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+    
+  
+  
+  
+    <li class="md-nav__item md-nav__item--active">
+      
+      <input class="md-nav__toggle md-toggle" type="checkbox" id="__toc">
+      
+      
+        
+      
+      
+        <label class="md-nav__link md-nav__link--active" for="__toc">
+          
+  
+  
+  <span class="md-ellipsis">
+    Essentials
+    
+  </span>
+  
+
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <a href="./" class="md-nav__link md-nav__link--active">
+        
+  
+  
+  <span class="md-ellipsis">
+    Essentials
+    
+  </span>
+  
+
+      </a>
+      
+        
+
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#cupcarbon-environment" class="md-nav__link">
+    <span class="md-ellipsis">
+      CupCarbon Environment
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#the-map" class="md-nav__link">
+    <span class="md-ellipsis">
+      The Map
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#the-toolbar" class="md-nav__link">
+    <span class="md-ellipsis">
+      The Toolbar
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="The Toolbar">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#project-part" class="md-nav__link">
+    <span class="md-ellipsis">
+      Project part
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#add-object-part" class="md-nav__link">
+    <span class="md-ellipsis">
+      Add object part
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#connections-part" class="md-nav__link">
+    <span class="md-ellipsis">
+      Connections part
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#simulation-part" class="md-nav__link">
+    <span class="md-ellipsis">
+      Simulation part
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#magnetism-part" class="md-nav__link">
+    <span class="md-ellipsis">
+      Magnetism part
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#selection-part" class="md-nav__link">
+    <span class="md-ellipsis">
+      Selection part
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#the-parameter-panel" class="md-nav__link">
+    <span class="md-ellipsis">
+      The parameter panel
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="The parameter panel">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#network-information-panel" class="md-nav__link">
+    <span class="md-ellipsis">
+      Network information panel
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#devices-objects-device-list-selection-panel" class="md-nav__link">
+    <span class="md-ellipsis">
+      Devices &amp; Objects [Device List] [Selection] panel
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#device-parameters-panel" class="md-nav__link">
+    <span class="md-ellipsis">
+      Device Parameters panel
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#radio-parameters-panel" class="md-nav__link">
+    <span class="md-ellipsis">
+      Radio Parameters panel
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#marker-parameters-panel" class="md-nav__link">
+    <span class="md-ellipsis">
+      Marker Parameters panel
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#simulation-parameters-and-senscript-panel" class="md-nav__link">
+    <span class="md-ellipsis">
+      Simulation Parameters and SenScript Panel
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../simulate_motion_based_lighting_system_in_cup_carbon/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Simulate Motion Based Lighting System in Cup Carbon
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+  </ul>
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+            
+              
+              <div class="md-sidebar md-sidebar--secondary" data-md-component="sidebar" data-md-type="toc" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#cupcarbon-environment" class="md-nav__link">
+    <span class="md-ellipsis">
+      CupCarbon Environment
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#the-map" class="md-nav__link">
+    <span class="md-ellipsis">
+      The Map
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#the-toolbar" class="md-nav__link">
+    <span class="md-ellipsis">
+      The Toolbar
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="The Toolbar">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#project-part" class="md-nav__link">
+    <span class="md-ellipsis">
+      Project part
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#add-object-part" class="md-nav__link">
+    <span class="md-ellipsis">
+      Add object part
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#connections-part" class="md-nav__link">
+    <span class="md-ellipsis">
+      Connections part
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#simulation-part" class="md-nav__link">
+    <span class="md-ellipsis">
+      Simulation part
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#magnetism-part" class="md-nav__link">
+    <span class="md-ellipsis">
+      Magnetism part
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#selection-part" class="md-nav__link">
+    <span class="md-ellipsis">
+      Selection part
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#the-parameter-panel" class="md-nav__link">
+    <span class="md-ellipsis">
+      The parameter panel
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="The parameter panel">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#network-information-panel" class="md-nav__link">
+    <span class="md-ellipsis">
+      Network information panel
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#devices-objects-device-list-selection-panel" class="md-nav__link">
+    <span class="md-ellipsis">
+      Devices &amp; Objects [Device List] [Selection] panel
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#device-parameters-panel" class="md-nav__link">
+    <span class="md-ellipsis">
+      Device Parameters panel
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#radio-parameters-panel" class="md-nav__link">
+    <span class="md-ellipsis">
+      Radio Parameters panel
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#marker-parameters-panel" class="md-nav__link">
+    <span class="md-ellipsis">
+      Marker Parameters panel
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#simulation-parameters-and-senscript-panel" class="md-nav__link">
+    <span class="md-ellipsis">
+      Simulation Parameters and SenScript Panel
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+          
+          
+            <div class="md-content" data-md-component="content">
+              <article class="md-content__inner md-typeset">
+                
+                  
+
+
+  
+  
+
+
+<h1 id="essentials">Essentials<a class="headerlink" href="#essentials" title="Permanent link">&para;</a></h1>
+<p>This covers a few of the essentials needed. For complete information, please refer to the <strong>CupCarbon</strong><span class="s1"><strong>®</strong></span> <strong>User Guide Version U-One 5.1.</strong></p>
+<h4 id="cupcarbon-environment"><strong>CupCarbon Environment</strong><a class="headerlink" href="#cupcarbon-environment" title="Permanent link">&para;</a></h4>
+<p>To execute CupCarbon (jar file), use the command window and go to the directory where the jar file is located.</p>
+<p>Then execute the following command:</p>
+<div class="highlight"><pre><span></span><code><span class="n">java</span> <span class="n">-jar</span> <span class="n">CupCarbon</span><span class="p">.</span><span class="n">jar</span>
+</code></pre></div>
+<p>In the case of the existence of a proxy, use the following command:</p>
+<div class="highlight"><pre><span></span><code><span class="n">java</span> <span class="n">-jar</span> <span class="n">CupCarbon</span><span class="p">.</span><span class="n">jar</span> <span class="n">proxy_host_name</span> <span class="n">proxy_number_of_port</span>
+</code></pre></div>
+<p>As shown in the Figure, the CupCarbon Graphical User Interface (GUI) is composed of the following five main</p>
+<p>parts:</p>
+<ol>
+<li>The map (in the center)</li>
+<li>The menu bar (on the top)</li>
+<li>The Toolbar (below the menu)</li>
+<li>The parameter menu (on the left)</li>
+<li>The state bar (at the bottom)</li>
+<li>The console (in version 5, the console is separated from the main interface)</li>
+</ol>
+<p><a href="http://smartcitylivinglab.iiit.ac.in:4000/uploads/images/gallery/2025-05/image-1746121356128.png"><img alt="image-1746121356128.png" src="../images/image-1746121356128.png" /></a></p>
+<h4 id="the-map"><strong>The Map</strong><a class="headerlink" href="#the-map" title="Permanent link">&para;</a></h4>
+<p>- The map is the main object of the simulator CupCarbon. It is the part where the network and the objects of the project can be designed. The map can be changed according to the preference of the user or the way the information must be presented.</p>
+<p><a href="http://smartcitylivinglab.iiit.ac.in:4000/uploads/images/gallery/2025-05/image-1746122754291.png"><img alt="image-1746122754291.png" src="../images/image-1746122754291.png" /></a></p>
+<p>The simulation time is displayed on the top left part of the map. During simulation, this time is displayed in red color, and an additional red rectangle is drawn around the map to detect the simulation process (cf. Figure 3 (a)). In this part, other information about the messages is also displayed, including the number of sent, received, ACK, and lost messages. This part can be hidden and displayed using the ALT+D keys.</p>
+<p><a href="http://smartcitylivinglab.iiit.ac.in:4000/uploads/images/gallery/2025-05/image-1746121522280.png"><img alt="image-1746121522280.png" src="../images/image-1746121522280.png" /></a></p>
+<h4 id="the-toolbar"><strong>The Toolbar</strong><a class="headerlink" href="#the-toolbar" title="Permanent link">&para;</a></h4>
+<p>The toolbar of CupCarbon is used to access the main actions of CupCarbon.</p>
+<p><a href="http://smartcitylivinglab.iiit.ac.in:4000/uploads/images/gallery/2025-05/image-1746121635377.png"><img alt="image-1746121635377.png" src="../images/image-1746121635377.png" /></a></p>
+<p>It is composed of 7 parts that are:</p>
+<h5 id="project-part"><strong>Project part</strong><a class="headerlink" href="#project-part" title="Permanent link">&para;</a></h5>
+<p><a href="http://smartcitylivinglab.iiit.ac.in:4000/uploads/images/gallery/2025-05/image-1746121669073.png"><img alt="image-1746121669073.png" src="../images/image-1746121669073.png" /></a></p>
+<p>It allows creating a new project, opening the last project, opening a project, and saving a project.</p>
+<h5 id="add-object-part"><strong>Add object part</strong><a class="headerlink" href="#add-object-part" title="Permanent link">&para;</a></h5>
+<p><a href="http://smartcitylivinglab.iiit.ac.in:4000/uploads/images/gallery/2025-05/image-1746122046205.png"><img alt="image-1746122046205.png" src="../images/image-1746122046205.png" /></a></p>
+<p>It allows adding objects (Sensor node, Directional Sensor node, Base station, Gas, Weather, Mobile, Marker, random sensor nodes) on the map.</p>
+<p><strong>Add Sensor Nodes:</strong> A sensor node is an object that can detect any digital event (motion event like mobiles), send and receive data. It can also be mobile. The visible parameters of a sensor node are: the radio range, the radio of the sensor unit, and the name. A sensor node has many parameters; it can contain many radio modules, a battery, and a sensing unit.</p>
+<p>In the center of the sensor node, we find the name S followed by its ID. For example, if its ID is equal to 4, then its name will be S4. In the right part of the name, we find a number situated between brackets, which is equal to [0] by default. This number represents the MY address of this sensor node. If a SenScript is assigned to it, it will be displayed in a gray color above its name. The <em>print</em> messages will be displayed in blue below their names.</p>
+<p><a href="http://smartcitylivinglab.iiit.ac.in:4000/uploads/images/gallery/2025-05/image-1746124214805.png"><img alt="image-1746124214805.png" src="../images/image-1746124214805.png" /></a></p>
+<p>A sensor node contains a sensing unit represented by a transparent white circle. The area's radius can be changed using the buttons ‘(’ for increasing the radius and '(‘ for decreasing the radius.</p>
+<p><a href="http://smartcitylivinglab.iiit.ac.in:4000/uploads/images/gallery/2025-05/image-1746124259716.png"><img alt="image-1746124259716.png" src="../images/image-1746124259716.png" /></a></p>
+<p><strong>Add Mobiles:</strong> used to simulate mobiles. Markers are also used to create routes followed by mobiles. Each mobile must have its route. They are also used to generate digital events.</p>
+<p><a href="http://smartcitylivinglab.iiit.ac.in:4000/uploads/images/gallery/2025-05/image-1746124314112.png"><img alt="image-1746124314112.png" src="../images/image-1746124314112.png" /></a></p>
+<p>A mobile depends on its route (trajectory). This last one is created using markers, as it is explained in the next section, bellow, one needs just to select the route which will be followed by the mobile in the list of created routes from the field GPS file in the Device Parameters view</p>
+<p><strong>Add Markers:</strong> used mainly to generate routes for mobiles (or mobile sensors). They are also used to generate sensor nodes, create new buildings, and indicate the area of generating buildings or random sensor nodes.</p>
+<p><a href="http://smartcitylivinglab.iiit.ac.in:4000/uploads/images/gallery/2025-05/image-1746122834727.png"><img alt="image-1746122834727.png" src="../images/image-1746122834727.png" /></a></p>
+<p>It is possible to generate routes either by drawing the route manually using the markers or by creating just two markers and clicking on the button Route From Markers in the Marker Parameters view. Then, each created route can be saved and added to the list of routes of the project. This procedure is explained above in the Marker Parameters view section. A list of buildings can be added in the area delimited by two markers. It is possible to draw a building by drawing the form using markers and then by typing on the key ‘:’.</p>
+<p><a href="http://smartcitylivinglab.iiit.ac.in:4000/uploads/images/gallery/2025-05/image-1746124426518.png"><img alt="image-1746124426518.png" src="../images/image-1746124426518.png" /></a></p>
+<h5 id="connections-part"><strong>Connections part</strong><a class="headerlink" href="#connections-part" title="Permanent link">&para;</a></h5>
+<p><a href="http://smartcitylivinglab.iiit.ac.in:4000/uploads/images/gallery/2025-05/image-1746122054711.png"><img alt="image-1746122054711.png" src="../images/image-1746122054711.png" /></a></p>
+<p>It allows for drawing normal or radio propagation-based connections between sensor nodes. It also calculates the visibility of the radio of the sensor node by considering the buildings of a city.</p>
+<p><a href="http://smartcitylivinglab.iiit.ac.in:4000/uploads/images/gallery/2025-05/image-1746122095797.png"><img alt="image-1746122095797.png" src="../images/image-1746122095797.png" /></a></p>
+<h5 id="simulation-part"><strong>Simulation part</strong><a class="headerlink" href="#simulation-part" title="Permanent link">&para;</a></h5>
+<p>It allows running the simulation, stopping the simulation, drawing the energy consumption function, open the SenScript window and to open the Natural Event generator.</p>
+<p><a href="http://smartcitylivinglab.iiit.ac.in:4000/uploads/images/gallery/2025-05/image-1746122103746.png"><img alt="image-1746122103746.png" src="../images/image-1746122103746.png" /></a></p>
+<p><strong>Run Simulation:</strong> to start the simulation</p>
+<p><strong>Stop Simulation:</strong> to stop the simulation</p>
+<p><strong>Energy Consumption:</strong> to display the graph of the energy consumption for the selected sensor nodes once the simulation is finished. You must first check the box <em>Results</em> before running the simulation. Two kinds of graphs are possible. The first one shows the state of the battery for the simulation time, and the other one shows the consumption of a sensor for the simulation time.</p>
+<h5 id="magnetism-part"><strong>Magnetism part</strong> <a href="http://smartcitylivinglab.iiit.ac.in:4000/uploads/images/gallery/2025-05/image-1746122123807.png"><img alt="image-1746122123807.png" src="../images/image-1746122123807.png" /></a><a class="headerlink" href="#magnetism-part" title="Permanent link">&para;</a></h5>
+<p>It allows to add objects in an (invisible) grid. It is recommanded to use the map (Mean gray cell background).</p>
+<h5 id="selection-part"><strong>Selection part</strong><a class="headerlink" href="#selection-part" title="Permanent link">&para;</a></h5>
+<p><a href="http://smartcitylivinglab.iiit.ac.in:4000/uploads/images/gallery/2025-05/image-1746122168287.png"><img alt="image-1746122168287.png" src="../images/image-1746122168287.png" /></a></p>
+<p>It allows to select all, select all sensor nodes, select all markers, select sensor nodes/markers, deselect all, and to invert selection</p>
+<p><strong>Credit: Content taken from CupCarbon<span class="s1">®</span> User Guide Version U-One 5.1</strong></p>
+<h4 id="the-parameter-panel"><strong>The parameter panel</strong><a class="headerlink" href="#the-parameter-panel" title="Permanent link">&para;</a></h4>
+<h5 id="network-information-panel"><strong>Network information panel</strong><a class="headerlink" href="#network-information-panel" title="Permanent link">&para;</a></h5>
+<p>This panel shows some information about the network, like the number of sensors, the number of marked sensors, the number of isolated sensors, etc.</p>
+<p><a href="http://smartcitylivinglab.iiit.ac.in:4000/uploads/images/gallery/2025-05/image-1746123424746.png"><img alt="image-1746123424746.png" src="../images/image-1746123424746.png" /></a></p>
+<h5 id="devices-objects-device-list-selection-panel"><strong>Devices &amp; Objects [Device List] [Selection] panel</strong><a class="headerlink" href="#devices-objects-device-list-selection-panel" title="Permanent link">&para;</a></h5>
+<p>This panel has two tabs. The first one is Device List, which allows you to select an object on the map by its name. The second one is the Selection tab that allows you to select/deselect objects by their type. It is also possible to select objects by their MY addresses or their IDs. These addresses/IDs can be entered as a list of numbers in the corresponding text field.</p>
+<p><a href="http://smartcitylivinglab.iiit.ac.in:4000/uploads/images/gallery/2025-05/image-1746123448323.png"><img alt="image-1746123448323.png" src="../images/image-1746123448323.png" /></a></p>
+<h5 id="device-parameters-panel"><strong>Device Parameters panel</strong><a class="headerlink" href="#device-parameters-panel" title="Permanent link">&para;</a></h5>
+<p><img alt="image-1746123478155.png" src="../images/image-1746123478155.png" /></p>
+<p>This panel allows you to modify the parameters of the selected objects, like:</p>
+<ol>
+<li>Script file: to assign the SenScript file</li>
+<li>GPS File: to assign the route file</li>
+<li>Natural Event File: to assign the natural event file generated from the Natural Event generator</li>
+<li>Id: to assign an ID</li>
+<li>Longitude: to assign a longitude</li>
+<li>Latitude: to assign a latitude</li>
+<li>Elevation: to assign an elevation</li>
+<li>Radius: to assign a radius for the sensor node (this is not the radio radius)</li>
+<li>Sensor Radius: to assign a radius for the sensing unit</li>
+<li>Energy max: the initial energy of the battery</li>
+<li>Sensing consumption: the sensing consumption in units (it is not considered in this version of CupCarbon)</li>
+<li>UART Datarate: the UART datarate, which represents the necessary time to send data (bytes) to the buffer of the radio module.</li>
+<li>Drift (sigma): the clock drift.</li>
+<li>The coverage of a sensing unit (case of directional sensor node)</li>
+<li>The direction (rotation) of a sensing unit (case of directional sensor node)</li>
+</ol>
+<p>Any modification is considered only if it is followed by a click on the apply button with the right gray arrow situated in the right part of the corresponding field.</p>
+<h5 id="radio-parameters-panel"><strong>Radio Parameters panel</strong><a class="headerlink" href="#radio-parameters-panel" title="Permanent link">&para;</a></h5>
+<p>This panel allows for modifying the parameters of the radio module of the selected sensor nodes. From this, we mainly use Radius: the radius range of the selected radio module. In the propagation mode (when clicking on the icon of the state bar) is activated than this radius is calculated automatically depending on the signal propagation and the environment.</p>
+<h5 id="marker-parameters-panel"><strong>Marker Parameters panel</strong><a class="headerlink" href="#marker-parameters-panel" title="Permanent link">&para;</a></h5>
+<p><a href="http://smartcitylivinglab.iiit.ac.in:4000/uploads/images/gallery/2025-05/image-1746123620555.png"><img alt="image-1746123620555.png" src="../images/image-1746123620555.png" /></a></p>
+<p>This panel allows for working with the markers as follows:</p>
+<p>1. Route from markers: This button allows you to generate a route situated between two points of the map that are determined by two markers. If there are more than 2 markers, only the last two will be considered. This allows for drawing new routes as a continuation of the existing one.</p>
+<p><a href="http://smartcitylivinglab.iiit.ac.in:4000/uploads/images/gallery/2025-05/image-1746123668469.png"><img alt="image-1746123668469.png" src="../images/image-1746123668469.png" /></a></p>
+<p>2. Insert Markers: allows to insertion of markers after the selected ones (cf. Section Markers). The same result can be obtained by pressing the key ‘u’.</p>
+<h5 id="simulation-parameters-and-senscript-panel"><strong>Simulation Parameters and SenScript Panel</strong><a class="headerlink" href="#simulation-parameters-and-senscript-panel" title="Permanent link">&para;</a></h5>
+<p><a href="http://smartcitylivinglab.iiit.ac.in:4000/uploads/images/gallery/2025-05/image-1746123744752.png"><img alt="image-1746123744752.png" src="../images/image-1746123744752.png" /></a></p>
+<p>This panel is used for the simulation. It contains the following buttons and options:</p>
+<p><strong>SenScript:</strong> to open the SenScript window</p>
+<p><strong>Simulation time:</strong> the duration of the simulation</p>
+<p><strong>Simulation Speed:</strong> is the speed of the simulation. The objective of this button is to be able to follow and to visualize the simulation at human speed. It is useful for debugging.</p>
+<p><strong>Arrow speed:</strong> the same as the Speed function, where the delay in this option is related to the sending/receiving message. It allows for to visualization of the messages.</p>
+<p><strong>Run simulation:</strong> start the simulation (can also be done by pressing on Entree)</p>
+<p><strong>Stop Simulation:</strong> stop the simulation</p>
+
+
+
+
+
+
+
+
+
+
+
+
+                
+              </article>
+            </div>
+          
+          
+<script>var target=document.getElementById(location.hash.slice(1));target&&target.name&&(target.checked=target.name.startsWith("__tabbed_"))</script>
+        </div>
+        
+          <button type="button" class="md-top md-icon" data-md-component="top" hidden>
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M13 20h-2V8l-5.5 5.5-1.42-1.42L12 4.16l7.92 7.92-1.42 1.42L13 8z"/></svg>
+  Back to top
+</button>
+        
+      </main>
+      
+        <footer class="md-footer">
+  
+  <div class="md-footer-meta md-typeset">
+    <div class="md-footer-meta__inner md-grid">
+      <div class="md-copyright">
+  
+  
+    Made with
+    <a href="https://squidfunk.github.io/mkdocs-material/" target="_blank" rel="noopener">
+      Material for MkDocs
+    </a>
+  
+</div>
+      
+        <div class="md-social">
+  
+    
+    
+    
+    
+      
+      
+    
+    <a href="https://github.com/likhithkanigolla" target="_blank" rel="noopener" title="github.com" class="md-social__link">
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 496 512"><!--! Font Awesome Free 6.7.2 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2024 Fonticons, Inc.--><path d="M165.9 397.4c0 2-2.3 3.6-5.2 3.6-3.3.3-5.6-1.3-5.6-3.6 0-2 2.3-3.6 5.2-3.6 3-.3 5.6 1.3 5.6 3.6m-31.1-4.5c-.7 2 1.3 4.3 4.3 4.9 2.6 1 5.6 0 6.2-2s-1.3-4.3-4.3-5.2c-2.6-.7-5.5.3-6.2 2.3m44.2-1.7c-2.9.7-4.9 2.6-4.6 4.9.3 2 2.9 3.3 5.9 2.6 2.9-.7 4.9-2.6 4.6-4.6-.3-1.9-3-3.2-5.9-2.9M244.8 8C106.1 8 0 113.3 0 252c0 110.9 69.8 205.8 169.5 239.2 12.8 2.3 17.3-5.6 17.3-12.1 0-6.2-.3-40.4-.3-61.4 0 0-70 15-84.7-29.8 0 0-11.4-29.1-27.8-36.6 0 0-22.9-15.7 1.6-15.4 0 0 24.9 2 38.6 25.8 21.9 38.6 58.6 27.5 72.9 20.9 2.3-16 8.8-27.1 16-33.7-55.9-6.2-112.3-14.3-112.3-110.5 0-27.5 7.6-41.3 23.6-58.9-2.6-6.5-11.1-33.3 2.6-67.9 20.9-6.5 69 27 69 27 20-5.6 41.5-8.5 62.8-8.5s42.8 2.9 62.8 8.5c0 0 48.1-33.6 69-27 13.7 34.7 5.2 61.4 2.6 67.9 16 17.7 25.8 31.5 25.8 58.9 0 96.5-58.9 104.2-114.8 110.5 9.2 7.9 17 22.9 17 46.4 0 33.7-.3 75.4-.3 83.6 0 6.5 4.6 14.4 17.3 12.1C428.2 457.8 496 362.9 496 252 496 113.3 383.5 8 244.8 8M97.2 352.9c-1.3 1-1 3.3.7 5.2 1.6 1.6 3.9 2.3 5.2 1 1.3-1 1-3.3-.7-5.2-1.6-1.6-3.9-2.3-5.2-1m-10.8-8.1c-.7 1.3.3 2.9 2.3 3.9 1.6 1 3.6.7 4.3-.7.7-1.3-.3-2.9-2.3-3.9-2-.6-3.6-.3-4.3.7m32.4 35.6c-1.6 1.3-1 4.3 1.3 6.2 2.3 2.3 5.2 2.6 6.5 1 1.3-1.3.7-4.3-1.3-6.2-2.2-2.3-5.2-2.6-6.5-1m-11.4-14.7c-1.6 1-1.6 3.6 0 5.9s4.3 3.3 5.6 2.3c1.6-1.3 1.6-3.9 0-6.2-1.4-2.3-4-3.3-5.6-2"/></svg>
+    </a>
+  
+    
+    
+    
+    
+      
+      
+    
+    <a href="https://www.linkedin.com/in/likhithkanigolla/" target="_blank" rel="noopener" title="www.linkedin.com" class="md-social__link">
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512"><!--! Font Awesome Free 6.7.2 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2024 Fonticons, Inc.--><path d="M416 32H31.9C14.3 32 0 46.5 0 64.3v383.4C0 465.5 14.3 480 31.9 480H416c17.6 0 32-14.5 32-32.3V64.3c0-17.8-14.4-32.3-32-32.3M135.4 416H69V202.2h66.5V416zm-33.2-243c-21.3 0-38.5-17.3-38.5-38.5S80.9 96 102.2 96c21.2 0 38.5 17.3 38.5 38.5 0 21.3-17.2 38.5-38.5 38.5m282.1 243h-66.4V312c0-24.8-.5-56.7-34.5-56.7-34.6 0-39.9 27-39.9 54.9V416h-66.4V202.2h63.7v29.2h.9c8.9-16.8 30.6-34.5 62.9-34.5 67.2 0 79.7 44.3 79.7 101.9z"/></svg>
+    </a>
+  
+</div>
+      
+    </div>
+  </div>
+</footer>
+      
+    </div>
+    <div class="md-dialog" data-md-component="dialog">
+      <div class="md-dialog__inner md-typeset"></div>
+    </div>
+    
+    
+    
+      
+      <script id="__config" type="application/json">{"base": "..", "features": ["navigation.tabs", "navigation.sections", "navigation.top", "search.highlight", "search.suggest"], "search": "../assets/javascripts/workers/search.f8cc74c7.min.js", "tags": null, "translations": {"clipboard.copied": "Copied to clipboard", "clipboard.copy": "Copy to clipboard", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.placeholder": "Type to start searching", "search.result.term.missing": "Missing", "select.version": "Select version"}, "version": null}</script>
+    
+    
+      <script src="../assets/javascripts/bundle.c8b220af.min.js"></script>
+      
+    
+  </body>
+</html>
