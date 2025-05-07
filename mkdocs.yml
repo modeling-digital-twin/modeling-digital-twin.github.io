@@ -5,7 +5,7 @@ site_url: https://modeling-digital-twin.github.io/
 
 # Repository
 repo_name: Modelling-Digital-Twins
-repo_url: https://github.com/likhithkanigolla/IIITS-Demo
+repo_url: https://github.com/modeling-digital-twin/modeling-digital-twin.github.io/tree/main
 
 # Theme Configuration
 theme:
@@ -67,19 +67,23 @@ nav:
   - PythonPDEVS Installation Guide: pythonpdevs_installation_guide.md
   - PythonPDEVS Introduction: pythonpdevs_introduction.md
   - PyDEVS Motion Light System: pydevs_motion_light_system.md
-- SAML:
-  - SAML (Software Architecture Modeling Language) Guide: saml_(software_architecture_modeling_language)_guide.md
-  - SAML for Motion Based Lighting System: saml_for_motion_based_lighting_system.md
-  - SAML for Temperature based window control: saml_for_temperature_based_window_control.md
-- HWML: hardware_modeling_language_(hwml)_guide.md
+  - PyDEVS Code Examples: code_examples/pydevs_code_examples.md
+- CAPS Models:
+  - SAML:
+    - SAML (Software Architecture Modeling Language) Guide: saml_(software_architecture_modeling_language)_guide.md
+    - SAML for Motion Based Lighting System: saml_for_motion_based_lighting_system.md
+  - HWML: 
+    - HWML (Hardware Modeling Language): hardware_modeling_language_(hwml)_guide.md
 - Cup Carbon:
   - Essentials: essentials.md
   - Simulate Motion Based Lighting System in Cup Carbon: simulate_motion_based_lighting_system_in_cup_carbon.md
 - Code Examples:
   - Overview: code_examples/index.md
-  - Motion Based Lighting: code_examples/motion_based_lighting.md
-  - Temperature Window Control: code_examples/temperature_window_control.md
+  - CAPS Code Examples: code_examples/caps_code_examples.md
+  - CupCarbon Code Examples: code_examples/cupcarbon_code_examples.md
+  - PyDEVS Code Examples: code_examples/pydevs_code_examples.md
 - Research: research.md
+- Downloads: downloads.md
 
 # Extra settings
 extra:
@@ -97,7 +101,3 @@ use_directory_urls: true
 
 plugins:
   - search
-  - pdf-export:
-      combined: true
-      combined_output_path: pdf/documentation.pdf
-      enabled_if_env: ENABLE_PDF_EXPORT
