@@ -1,0 +1,13 @@
+List of parameters
+------------------------------------------
+device_type:1
+device_id:309
+device_longitude:55.4795415266037
+device_latitude:25.302916537066068
+device_elevation:0.0
+device_radius:0.0
+device_hide:1
+device_pic:0
+device_draw_battery:false
+device_sensor_unit_radius:25.0
+device_script_file_name:atget_hello.csc

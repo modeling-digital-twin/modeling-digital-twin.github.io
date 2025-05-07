@@ -1,0 +1,10 @@
+List of parameters
+------------------------------------------
+device_type:6
+device_id:35
+device_longitude:55.47770619392395
+device_latitude:25.303692700131606
+device_elevation:0.0
+device_radius:8.0
+device_hide:1
+device_gps_file_name:building.gps

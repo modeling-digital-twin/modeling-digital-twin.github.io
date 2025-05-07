@@ -1,0 +1,19 @@
+CupCarbon v. Klines 7.0
+----------------
+name:DEMOTEST
+zoom:1
+centerposition_la:25.30300403662439
+centerposition_lo:55.478821992874146
+map:7
+display_details:false
+draw_radio_links:false
+draw_sensor_arrows:false
+radio_links_color:2
+draw_marker_arrows:false
+display_rl_distance:false
+propagation:false
+display_marker_distance:false
+display_radio_messages:false
+draw_script_file_name:false
+display_print_messages:true
+display_all_routes:false

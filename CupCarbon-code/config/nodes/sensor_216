@@ -1,0 +1,13 @@
+List of parameters
+------------------------------------------
+device_type:1
+device_id:216
+device_longitude:55.47763984041214
+device_latitude:25.302904415631772
+device_elevation:0.0
+device_radius:0.0
+device_hide:1
+device_pic:0
+device_draw_battery:false
+device_sensor_unit_radius:25.0
+device_script_file_name:atget_router.csc
