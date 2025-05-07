@@ -1,0 +1,64 @@
+/* Code container with download button */
+.code-block {
+  position: relative;
+  margin-bottom: 1.5rem;
+}
+
+.code-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 0.5rem 1rem;
+  background-color: rgba(0, 0, 0, 0.05);
+  border-top-left-radius: 0.2rem;
+  border-top-right-radius: 0.2rem;
+  border: 1px solid rgba(0, 0, 0, 0.1);
+  border-bottom: none;
+}
+
+.code-header + pre {
+  margin-top: 0 !important;
+  border-top-left-radius: 0 !important;
+  border-top-right-radius: 0 !important;
+}
+
+.code-filename {
+  font-family: var(--md-code-font);
+  font-weight: 500;
+  font-size: 0.8rem;
+}
+
+.code-download {
+  display: inline-flex;
+  align-items: center;
+  font-size: 0.7rem;
+  padding: 0.2rem 0.6rem;
+  background-color: var(--md-primary-fg-color);
+  color: var(--md-primary-bg-color) !important;
+  border-radius: 0.2rem;
+  text-decoration: none !important;
+  transition: background-color 0.2s ease;
+}
+
+.code-download:hover {
+  background-color: var(--md-primary-fg-color--dark);
+}
+
+/* Project download button */
+.project-download {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
+  margin: 1rem 0;
+  padding: 0.5rem 1rem;
+  background-color: var(--md-primary-fg-color);
+  color: var(--md-primary-bg-color) !important;
+  border-radius: 0.2rem;
+  text-decoration: none !important;
+  font-weight: 500;
+  transition: background-color 0.2s ease;
+}
+
+.project-download:hover {
+  background-color: var(--md-primary-fg-color--dark);
+}
