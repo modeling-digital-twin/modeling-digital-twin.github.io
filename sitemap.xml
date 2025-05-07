@@ -13,6 +13,10 @@
          <lastmod>2025-05-07</lastmod>
     </url>
     <url>
+         <loc>https://modeling-digital-twin.github.io/downloads/</loc>
+         <lastmod>2025-05-07</lastmod>
+    </url>
+    <url>
          <loc>https://modeling-digital-twin.github.io/eclipse_caps_integration_guide/</loc>
          <lastmod>2025-05-07</lastmod>
     </url>
@@ -49,11 +53,23 @@
          <lastmod>2025-05-07</lastmod>
     </url>
     <url>
-         <loc>https://modeling-digital-twin.github.io/saml_for_temperature_based_window_control/</loc>
+         <loc>https://modeling-digital-twin.github.io/simulate_motion_based_lighting_system_in_cup_carbon/</loc>
          <lastmod>2025-05-07</lastmod>
     </url>
     <url>
-         <loc>https://modeling-digital-twin.github.io/simulate_motion_based_lighting_system_in_cup_carbon/</loc>
+         <loc>https://modeling-digital-twin.github.io/code_examples/</loc>
+         <lastmod>2025-05-07</lastmod>
+    </url>
+    <url>
+         <loc>https://modeling-digital-twin.github.io/code_examples/caps_code_examples/</loc>
+         <lastmod>2025-05-07</lastmod>
+    </url>
+    <url>
+         <loc>https://modeling-digital-twin.github.io/code_examples/cupcarbon_code_examples/</loc>
+         <lastmod>2025-05-07</lastmod>
+    </url>
+    <url>
+         <loc>https://modeling-digital-twin.github.io/code_examples/pydevs_code_examples/</loc>
          <lastmod>2025-05-07</lastmod>
     </url>
 </urlset>

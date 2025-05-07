@@ -1,0 +1,2489 @@
+
+<!doctype html>
+<html lang="en" class="no-js">
+  <head>
+    
+      <meta charset="utf-8">
+      <meta name="viewport" content="width=device-width,initial-scale=1">
+      
+        <meta name="description" content="Documentation for IoT Modelling and Digital Twin Implementation">
+      
+      
+        <meta name="author" content="Likhith Kanigolla">
+      
+      
+        <link rel="canonical" href="https://modeling-digital-twin.github.io/code_examples/cupcarbon_code_examples/">
+      
+      
+        <link rel="prev" href="../caps_code_examples/">
+      
+      
+        <link rel="next" href="../pydevs_code_examples/">
+      
+      
+      <link rel="icon" href="../../assets/images/favicon.png">
+      <meta name="generator" content="mkdocs-1.6.1, mkdocs-material-9.6.12">
+    
+    
+      
+        <title>CupCarbon Code Examples - Modelling for Digital Twins</title>
+      
+    
+    
+      <link rel="stylesheet" href="../../assets/stylesheets/main.2afb09e1.min.css">
+      
+        
+        <link rel="stylesheet" href="../../assets/stylesheets/palette.06af60db.min.css">
+      
+      
+
+
+    
+    
+      
+    
+    
+      
+        
+        
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:300,300i,400,400i,700,700i%7CRoboto+Mono:400,400i,700,700i&display=fallback">
+        <style>:root{--md-text-font:"Roboto";--md-code-font:"Roboto Mono"}</style>
+      
+    
+    
+      <link rel="stylesheet" href="../../assets/css/extra.css">
+    
+    <script>__md_scope=new URL("../..",location),__md_hash=e=>[...e].reduce(((e,_)=>(e<<5)-e+_.charCodeAt(0)),0),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
+    
+      
+
+    
+    
+    
+  </head>
+  
+  
+    
+    
+      
+    
+    
+    
+    
+    <body dir="ltr" data-md-color-scheme="default" data-md-color-primary="indigo" data-md-color-accent="indigo">
+  
+    
+    <input class="md-toggle" data-md-toggle="drawer" type="checkbox" id="__drawer" autocomplete="off">
+    <input class="md-toggle" data-md-toggle="search" type="checkbox" id="__search" autocomplete="off">
+    <label class="md-overlay" for="__drawer"></label>
+    <div data-md-component="skip">
+      
+        
+        <a href="#cupcarbon-code-examples" class="md-skip">
+          Skip to content
+        </a>
+      
+    </div>
+    <div data-md-component="announce">
+      
+    </div>
+    
+    
+      
+
+<header class="md-header" data-md-component="header">
+  <nav class="md-header__inner md-grid" aria-label="Header">
+    <a href="../.." title="Modelling for Digital Twins" class="md-header__button md-logo" aria-label="Modelling for Digital Twins" data-md-component="logo">
+      
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54"/></svg>
+
+    </a>
+    <label class="md-header__button md-icon" for="__drawer">
+      
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M3 6h18v2H3zm0 5h18v2H3zm0 5h18v2H3z"/></svg>
+    </label>
+    <div class="md-header__title" data-md-component="header-title">
+      <div class="md-header__ellipsis">
+        <div class="md-header__topic">
+          <span class="md-ellipsis">
+            Modelling for Digital Twins
+          </span>
+        </div>
+        <div class="md-header__topic" data-md-component="header-topic">
+          <span class="md-ellipsis">
+            
+              CupCarbon Code Examples
+            
+          </span>
+        </div>
+      </div>
+    </div>
+    
+      
+        <form class="md-header__option" data-md-component="palette">
+  
+    
+    
+    
+    <input class="md-option" data-md-color-media="(prefers-color-scheme: light)" data-md-color-scheme="default" data-md-color-primary="indigo" data-md-color-accent="indigo"  aria-label="Switch to dark mode"  type="radio" name="__palette" id="__palette_0">
+    
+      <label class="md-header__button md-icon" title="Switch to dark mode" for="__palette_1" hidden>
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="m17.75 4.09-2.53 1.94.91 3.06-2.63-1.81-2.63 1.81.91-3.06-2.53-1.94L12.44 4l1.06-3 1.06 3zm3.5 6.91-1.64 1.25.59 1.98-1.7-1.17-1.7 1.17.59-1.98L15.75 11l2.06-.05L18.5 9l.69 1.95zm-2.28 4.95c.83-.08 1.72 1.1 1.19 1.85-.32.45-.66.87-1.08 1.27C15.17 23 8.84 23 4.94 19.07c-3.91-3.9-3.91-10.24 0-14.14.4-.4.82-.76 1.27-1.08.75-.53 1.93.36 1.85 1.19-.27 2.86.69 5.83 2.89 8.02a9.96 9.96 0 0 0 8.02 2.89m-1.64 2.02a12.08 12.08 0 0 1-7.8-3.47c-2.17-2.19-3.33-5-3.49-7.82-2.81 3.14-2.7 7.96.31 10.98 3.02 3.01 7.84 3.12 10.98.31"/></svg>
+      </label>
+    
+  
+    
+    
+    
+    <input class="md-option" data-md-color-media="(prefers-color-scheme: dark)" data-md-color-scheme="slate" data-md-color-primary="blue" data-md-color-accent="blue"  aria-label="Switch to light mode"  type="radio" name="__palette" id="__palette_1">
+    
+      <label class="md-header__button md-icon" title="Switch to light mode" for="__palette_0" hidden>
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 7a5 5 0 0 1 5 5 5 5 0 0 1-5 5 5 5 0 0 1-5-5 5 5 0 0 1 5-5m0 2a3 3 0 0 0-3 3 3 3 0 0 0 3 3 3 3 0 0 0 3-3 3 3 0 0 0-3-3m0-7 2.39 3.42C13.65 5.15 12.84 5 12 5s-1.65.15-2.39.42zM3.34 7l4.16-.35A7.2 7.2 0 0 0 5.94 8.5c-.44.74-.69 1.5-.83 2.29zm.02 10 1.76-3.77a7.131 7.131 0 0 0 2.38 4.14zM20.65 7l-1.77 3.79a7.02 7.02 0 0 0-2.38-4.15zm-.01 10-4.14.36c.59-.51 1.12-1.14 1.54-1.86.42-.73.69-1.5.83-2.29zM12 22l-2.41-3.44c.74.27 1.55.44 2.41.44.82 0 1.63-.17 2.37-.44z"/></svg>
+      </label>
+    
+  
+</form>
+      
+    
+    
+      <script>var palette=__md_get("__palette");if(palette&&palette.color){if("(prefers-color-scheme)"===palette.color.media){var media=matchMedia("(prefers-color-scheme: light)"),input=document.querySelector(media.matches?"[data-md-color-media='(prefers-color-scheme: light)']":"[data-md-color-media='(prefers-color-scheme: dark)']");palette.color.media=input.getAttribute("data-md-color-media"),palette.color.scheme=input.getAttribute("data-md-color-scheme"),palette.color.primary=input.getAttribute("data-md-color-primary"),palette.color.accent=input.getAttribute("data-md-color-accent")}for(var[key,value]of Object.entries(palette.color))document.body.setAttribute("data-md-color-"+key,value)}</script>
+    
+    
+    
+      
+      
+        <label class="md-header__button md-icon" for="__search">
+          
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.52 6.52 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5"/></svg>
+        </label>
+        <div class="md-search" data-md-component="search" role="dialog">
+  <label class="md-search__overlay" for="__search"></label>
+  <div class="md-search__inner" role="search">
+    <form class="md-search__form" name="search">
+      <input type="text" class="md-search__input" name="query" aria-label="Search" placeholder="Search" autocapitalize="off" autocorrect="off" autocomplete="off" spellcheck="false" data-md-component="search-query" required>
+      <label class="md-search__icon md-icon" for="__search">
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.52 6.52 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5"/></svg>
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11z"/></svg>
+      </label>
+      <nav class="md-search__options" aria-label="Search">
+        
+        <button type="reset" class="md-search__icon md-icon" title="Clear" aria-label="Clear" tabindex="-1">
+          
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M19 6.41 17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12z"/></svg>
+        </button>
+      </nav>
+      
+        <div class="md-search__suggest" data-md-component="search-suggest"></div>
+      
+    </form>
+    <div class="md-search__output">
+      <div class="md-search__scrollwrap" tabindex="0" data-md-scrollfix>
+        <div class="md-search-result" data-md-component="search-result">
+          <div class="md-search-result__meta">
+            Initializing search
+          </div>
+          <ol class="md-search-result__list" role="presentation"></ol>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+      
+    
+    
+      <div class="md-header__source">
+        <a href="https://github.com/modeling-digital-twin/modeling-digital-twin.github.io/tree/main" title="Go to repository" class="md-source" data-md-component="source">
+  <div class="md-source__icon md-icon">
+    
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512"><!--! Font Awesome Free 6.7.2 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2024 Fonticons, Inc.--><path d="M439.55 236.05 244 40.45a28.87 28.87 0 0 0-40.81 0l-40.66 40.63 51.52 51.52c27.06-9.14 52.68 16.77 43.39 43.68l49.66 49.66c34.23-11.8 61.18 31 35.47 56.69-26.49 26.49-70.21-2.87-56-37.34L240.22 199v121.85c25.3 12.54 22.26 41.85 9.08 55a34.34 34.34 0 0 1-48.55 0c-17.57-17.6-11.07-46.91 11.25-56v-123c-20.8-8.51-24.6-30.74-18.64-45L142.57 101 8.45 235.14a28.86 28.86 0 0 0 0 40.81l195.61 195.6a28.86 28.86 0 0 0 40.8 0l194.69-194.69a28.86 28.86 0 0 0 0-40.81"/></svg>
+  </div>
+  <div class="md-source__repository">
+    Modelling-Digital-Twins
+  </div>
+</a>
+      </div>
+    
+  </nav>
+  
+</header>
+    
+    <div class="md-container" data-md-component="container">
+      
+      
+        
+          
+            
+<nav class="md-tabs" aria-label="Tabs" data-md-component="tabs">
+  <div class="md-grid">
+    <ul class="md-tabs__list">
+      
+        
+  
+  
+  
+  
+    <li class="md-tabs__item">
+      <a href="../.." class="md-tabs__link">
+        
+  
+  
+    
+  
+  Home
+
+      </a>
+    </li>
+  
+
+      
+        
+  
+  
+  
+  
+    
+    
+      <li class="md-tabs__item">
+        <a href="../../caps_installation_guide/" class="md-tabs__link">
+          
+  
+  
+  Installation
+
+        </a>
+      </li>
+    
+  
+
+      
+        
+  
+  
+  
+  
+    
+    
+      <li class="md-tabs__item">
+        <a href="../../pythonpdevs_installation_guide/" class="md-tabs__link">
+          
+  
+  
+  PythonPDEVS
+
+        </a>
+      </li>
+    
+  
+
+      
+        
+  
+  
+  
+  
+    
+    
+      
+  
+  
+  
+  
+    
+    
+      <li class="md-tabs__item">
+        <a href="../../saml_%28software_architecture_modeling_language%29_guide/" class="md-tabs__link">
+          
+  
+  
+  CAPS Models
+
+        </a>
+      </li>
+    
+  
+
+    
+  
+
+      
+        
+  
+  
+  
+  
+    
+    
+      <li class="md-tabs__item">
+        <a href="../../essentials/" class="md-tabs__link">
+          
+  
+  
+  Cup Carbon
+
+        </a>
+      </li>
+    
+  
+
+      
+        
+  
+  
+  
+    
+  
+  
+    
+    
+      <li class="md-tabs__item md-tabs__item--active">
+        <a href="../" class="md-tabs__link">
+          
+  
+  
+  Code Examples
+
+        </a>
+      </li>
+    
+  
+
+      
+        
+  
+  
+  
+  
+    <li class="md-tabs__item">
+      <a href="../../research/" class="md-tabs__link">
+        
+  
+  
+    
+  
+  Research
+
+      </a>
+    </li>
+  
+
+      
+        
+  
+  
+  
+  
+    <li class="md-tabs__item">
+      <a href="../../downloads/" class="md-tabs__link">
+        
+  
+  
+    
+  
+  Downloads
+
+      </a>
+    </li>
+  
+
+      
+    </ul>
+  </div>
+</nav>
+          
+        
+      
+      <main class="md-main" data-md-component="main">
+        <div class="md-main__inner md-grid">
+          
+            
+              
+              <div class="md-sidebar md-sidebar--primary" data-md-component="sidebar" data-md-type="navigation" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+
+  
+
+
+<nav class="md-nav md-nav--primary md-nav--lifted" aria-label="Navigation" data-md-level="0">
+  <label class="md-nav__title" for="__drawer">
+    <a href="../.." title="Modelling for Digital Twins" class="md-nav__button md-logo" aria-label="Modelling for Digital Twins" data-md-component="logo">
+      
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54"/></svg>
+
+    </a>
+    Modelling for Digital Twins
+  </label>
+  
+    <div class="md-nav__source">
+      <a href="https://github.com/modeling-digital-twin/modeling-digital-twin.github.io/tree/main" title="Go to repository" class="md-source" data-md-component="source">
+  <div class="md-source__icon md-icon">
+    
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512"><!--! Font Awesome Free 6.7.2 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2024 Fonticons, Inc.--><path d="M439.55 236.05 244 40.45a28.87 28.87 0 0 0-40.81 0l-40.66 40.63 51.52 51.52c27.06-9.14 52.68 16.77 43.39 43.68l49.66 49.66c34.23-11.8 61.18 31 35.47 56.69-26.49 26.49-70.21-2.87-56-37.34L240.22 199v121.85c25.3 12.54 22.26 41.85 9.08 55a34.34 34.34 0 0 1-48.55 0c-17.57-17.6-11.07-46.91 11.25-56v-123c-20.8-8.51-24.6-30.74-18.64-45L142.57 101 8.45 235.14a28.86 28.86 0 0 0 0 40.81l195.61 195.6a28.86 28.86 0 0 0 40.8 0l194.69-194.69a28.86 28.86 0 0 0 0-40.81"/></svg>
+  </div>
+  <div class="md-source__repository">
+    Modelling-Digital-Twins
+  </div>
+</a>
+    </div>
+  
+  <ul class="md-nav__list" data-md-scrollfix>
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../.." class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Home
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+    
+    
+      
+      
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_2" >
+        
+          
+          <label class="md-nav__link" for="__nav_2" id="__nav_2_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    Installation
+    
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_2_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_2">
+            <span class="md-nav__icon md-icon"></span>
+            Installation
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../caps_installation_guide/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    CAPS Installation Guide
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../eclipse_caps_integration_guide/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Eclipse CAPS Integration Guide
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../cupcarbon_installation_guide/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    CupCarbon Installation Guide
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+    
+    
+      
+      
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_3" >
+        
+          
+          <label class="md-nav__link" for="__nav_3" id="__nav_3_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    PythonPDEVS
+    
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_3_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_3">
+            <span class="md-nav__icon md-icon"></span>
+            PythonPDEVS
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../pythonpdevs_installation_guide/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    PythonPDEVS Installation Guide
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../pythonpdevs_introduction/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    PythonPDEVS Introduction
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../pydevs_motion_light_system/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    PyDEVS Motion Light System
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../pydevs_code_examples/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    PyDEVS Code Examples
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+    
+    
+      
+      
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_4" >
+        
+          
+          <label class="md-nav__link" for="__nav_4" id="__nav_4_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    CAPS Models
+    
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_4_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_4">
+            <span class="md-nav__icon md-icon"></span>
+            CAPS Models
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    
+    
+    
+    
+      
+      
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_4_1" >
+        
+          
+          <label class="md-nav__link" for="__nav_4_1" id="__nav_4_1_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    SAML
+    
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_4_1_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_4_1">
+            <span class="md-nav__icon md-icon"></span>
+            SAML
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../saml_%28software_architecture_modeling_language%29_guide/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    SAML (Software Architecture Modeling Language) Guide
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../saml_for_motion_based_lighting_system/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    SAML for Motion Based Lighting System
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    
+    
+    
+    
+      
+      
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_4_2" >
+        
+          
+          <label class="md-nav__link" for="__nav_4_2" id="__nav_4_2_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    HWML
+    
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_4_2_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_4_2">
+            <span class="md-nav__icon md-icon"></span>
+            HWML
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../hardware_modeling_language_%28hwml%29_guide/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    HWML (Hardware Modeling Language)
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+    
+    
+      
+      
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_5" >
+        
+          
+          <label class="md-nav__link" for="__nav_5" id="__nav_5_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    Cup Carbon
+    
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_5_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_5">
+            <span class="md-nav__icon md-icon"></span>
+            Cup Carbon
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../essentials/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Essentials
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../simulate_motion_based_lighting_system_in_cup_carbon/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Simulate Motion Based Lighting System in Cup Carbon
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+    
+  
+  
+  
+    
+    
+    
+    
+      
+        
+        
+      
+      
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--active md-nav__item--section md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_6" checked>
+        
+          
+          <label class="md-nav__link" for="__nav_6" id="__nav_6_label" tabindex="">
+            
+  
+  
+  <span class="md-ellipsis">
+    Code Examples
+    
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_6_label" aria-expanded="true">
+          <label class="md-nav__title" for="__nav_6">
+            <span class="md-nav__icon md-icon"></span>
+            Code Examples
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Overview
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../caps_code_examples/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    CAPS Code Examples
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+    
+  
+  
+  
+    <li class="md-nav__item md-nav__item--active">
+      
+      <input class="md-nav__toggle md-toggle" type="checkbox" id="__toc">
+      
+      
+        
+      
+      
+        <label class="md-nav__link md-nav__link--active" for="__toc">
+          
+  
+  
+  <span class="md-ellipsis">
+    CupCarbon Code Examples
+    
+  </span>
+  
+
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <a href="./" class="md-nav__link md-nav__link--active">
+        
+  
+  
+  <span class="md-ellipsis">
+    CupCarbon Code Examples
+    
+  </span>
+  
+
+      </a>
+      
+        
+
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#example-categories" class="md-nav__link">
+    <span class="md-ellipsis">
+      Example Categories
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Example Categories">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#router-node-scripts" class="md-nav__link">
+    <span class="md-ellipsis">
+      Router Node Scripts
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#router-node-script-atget_routercsc" class="md-nav__link">
+    <span class="md-ellipsis">
+      Router Node Script (atget_router.csc)
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Router Node Script (atget_router.csc)">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#code-breakdown" class="md-nav__link">
+    <span class="md-ellipsis">
+      Code Breakdown
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#explanation" class="md-nav__link">
+    <span class="md-ellipsis">
+      Explanation
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#use-case" class="md-nav__link">
+    <span class="md-ellipsis">
+      Use Case
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#motion-detector-script-motion_detectorcsc" class="md-nav__link">
+    <span class="md-ellipsis">
+      Motion Detector Script (motion_detector.csc)
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Motion Detector Script (motion_detector.csc)">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#code-breakdown_1" class="md-nav__link">
+    <span class="md-ellipsis">
+      Code Breakdown
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#explanation_1" class="md-nav__link">
+    <span class="md-ellipsis">
+      Explanation
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#use-case_1" class="md-nav__link">
+    <span class="md-ellipsis">
+      Use Case
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#light-control-script-light_controlcsc" class="md-nav__link">
+    <span class="md-ellipsis">
+      Light Control Script (light_control.csc)
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Light Control Script (light_control.csc)">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#code-breakdown_2" class="md-nav__link">
+    <span class="md-ellipsis">
+      Code Breakdown
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#explanation_2" class="md-nav__link">
+    <span class="md-ellipsis">
+      Explanation
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#use-case_2" class="md-nav__link">
+    <span class="md-ellipsis">
+      Use Case
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#temperature-monitoring-script-temperature_monitorcsc" class="md-nav__link">
+    <span class="md-ellipsis">
+      Temperature Monitoring Script (temperature_monitor.csc)
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Temperature Monitoring Script (temperature_monitor.csc)">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#code-breakdown_3" class="md-nav__link">
+    <span class="md-ellipsis">
+      Code Breakdown
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#explanation_3" class="md-nav__link">
+    <span class="md-ellipsis">
+      Explanation
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#use-case_3" class="md-nav__link">
+    <span class="md-ellipsis">
+      Use Case
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#gateway-node-script-gatewaycsc" class="md-nav__link">
+    <span class="md-ellipsis">
+      Gateway Node Script (gateway.csc)
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Gateway Node Script (gateway.csc)">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#code-breakdown_4" class="md-nav__link">
+    <span class="md-ellipsis">
+      Code Breakdown
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#explanation_4" class="md-nav__link">
+    <span class="md-ellipsis">
+      Explanation
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#use-case_4" class="md-nav__link">
+    <span class="md-ellipsis">
+      Use Case
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#cupcarbon-configuration-files" class="md-nav__link">
+    <span class="md-ellipsis">
+      CupCarbon Configuration Files
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="CupCarbon Configuration Files">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#node-configuration-files" class="md-nav__link">
+    <span class="md-ellipsis">
+      Node Configuration Files
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Node Configuration Files">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#sensor-node-configuration-sensor" class="md-nav__link">
+    <span class="md-ellipsis">
+      Sensor Node Configuration (sensor)
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#iot-device-configuration-iot" class="md-nav__link">
+    <span class="md-ellipsis">
+      IoT Device Configuration (iot)
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#mobile-node-configuration-mobile" class="md-nav__link">
+    <span class="md-ellipsis">
+      Mobile Node Configuration (mobile)
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#radio-configuration-files" class="md-nav__link">
+    <span class="md-ellipsis">
+      Radio Configuration Files
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Radio Configuration Files">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#standard-sensor-radio-configuration-sensor_radiossensor" class="md-nav__link">
+    <span class="md-ellipsis">
+      Standard Sensor Radio Configuration (sensor_radios/sensor)
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#iot-device-radio-configuration-sensor_radiosiot" class="md-nav__link">
+    <span class="md-ellipsis">
+      IoT Device Radio Configuration (sensor_radios/iot)
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#gps-movement-file-buildinggps" class="md-nav__link">
+    <span class="md-ellipsis">
+      GPS Movement File (building.gps)
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#how-to-use-configuration-files" class="md-nav__link">
+    <span class="md-ellipsis">
+      How to Use Configuration Files
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#complete-iot-simulation-setup" class="md-nav__link">
+    <span class="md-ellipsis">
+      Complete IoT Simulation Setup
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#how-to-use-these-scripts" class="md-nav__link">
+    <span class="md-ellipsis">
+      How to Use These Scripts
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#additional-considerations" class="md-nav__link">
+    <span class="md-ellipsis">
+      Additional Considerations
+    </span>
+  </a>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../pydevs_code_examples/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    PyDEVS Code Examples
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../research/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Research
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../downloads/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Downloads
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+    
+  </ul>
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+            
+              
+              <div class="md-sidebar md-sidebar--secondary" data-md-component="sidebar" data-md-type="toc" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#example-categories" class="md-nav__link">
+    <span class="md-ellipsis">
+      Example Categories
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Example Categories">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#router-node-scripts" class="md-nav__link">
+    <span class="md-ellipsis">
+      Router Node Scripts
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#router-node-script-atget_routercsc" class="md-nav__link">
+    <span class="md-ellipsis">
+      Router Node Script (atget_router.csc)
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Router Node Script (atget_router.csc)">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#code-breakdown" class="md-nav__link">
+    <span class="md-ellipsis">
+      Code Breakdown
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#explanation" class="md-nav__link">
+    <span class="md-ellipsis">
+      Explanation
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#use-case" class="md-nav__link">
+    <span class="md-ellipsis">
+      Use Case
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#motion-detector-script-motion_detectorcsc" class="md-nav__link">
+    <span class="md-ellipsis">
+      Motion Detector Script (motion_detector.csc)
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Motion Detector Script (motion_detector.csc)">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#code-breakdown_1" class="md-nav__link">
+    <span class="md-ellipsis">
+      Code Breakdown
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#explanation_1" class="md-nav__link">
+    <span class="md-ellipsis">
+      Explanation
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#use-case_1" class="md-nav__link">
+    <span class="md-ellipsis">
+      Use Case
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#light-control-script-light_controlcsc" class="md-nav__link">
+    <span class="md-ellipsis">
+      Light Control Script (light_control.csc)
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Light Control Script (light_control.csc)">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#code-breakdown_2" class="md-nav__link">
+    <span class="md-ellipsis">
+      Code Breakdown
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#explanation_2" class="md-nav__link">
+    <span class="md-ellipsis">
+      Explanation
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#use-case_2" class="md-nav__link">
+    <span class="md-ellipsis">
+      Use Case
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#temperature-monitoring-script-temperature_monitorcsc" class="md-nav__link">
+    <span class="md-ellipsis">
+      Temperature Monitoring Script (temperature_monitor.csc)
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Temperature Monitoring Script (temperature_monitor.csc)">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#code-breakdown_3" class="md-nav__link">
+    <span class="md-ellipsis">
+      Code Breakdown
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#explanation_3" class="md-nav__link">
+    <span class="md-ellipsis">
+      Explanation
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#use-case_3" class="md-nav__link">
+    <span class="md-ellipsis">
+      Use Case
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#gateway-node-script-gatewaycsc" class="md-nav__link">
+    <span class="md-ellipsis">
+      Gateway Node Script (gateway.csc)
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Gateway Node Script (gateway.csc)">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#code-breakdown_4" class="md-nav__link">
+    <span class="md-ellipsis">
+      Code Breakdown
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#explanation_4" class="md-nav__link">
+    <span class="md-ellipsis">
+      Explanation
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#use-case_4" class="md-nav__link">
+    <span class="md-ellipsis">
+      Use Case
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#cupcarbon-configuration-files" class="md-nav__link">
+    <span class="md-ellipsis">
+      CupCarbon Configuration Files
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="CupCarbon Configuration Files">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#node-configuration-files" class="md-nav__link">
+    <span class="md-ellipsis">
+      Node Configuration Files
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Node Configuration Files">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#sensor-node-configuration-sensor" class="md-nav__link">
+    <span class="md-ellipsis">
+      Sensor Node Configuration (sensor)
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#iot-device-configuration-iot" class="md-nav__link">
+    <span class="md-ellipsis">
+      IoT Device Configuration (iot)
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#mobile-node-configuration-mobile" class="md-nav__link">
+    <span class="md-ellipsis">
+      Mobile Node Configuration (mobile)
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#radio-configuration-files" class="md-nav__link">
+    <span class="md-ellipsis">
+      Radio Configuration Files
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Radio Configuration Files">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#standard-sensor-radio-configuration-sensor_radiossensor" class="md-nav__link">
+    <span class="md-ellipsis">
+      Standard Sensor Radio Configuration (sensor_radios/sensor)
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#iot-device-radio-configuration-sensor_radiosiot" class="md-nav__link">
+    <span class="md-ellipsis">
+      IoT Device Radio Configuration (sensor_radios/iot)
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#gps-movement-file-buildinggps" class="md-nav__link">
+    <span class="md-ellipsis">
+      GPS Movement File (building.gps)
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#how-to-use-configuration-files" class="md-nav__link">
+    <span class="md-ellipsis">
+      How to Use Configuration Files
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#complete-iot-simulation-setup" class="md-nav__link">
+    <span class="md-ellipsis">
+      Complete IoT Simulation Setup
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#how-to-use-these-scripts" class="md-nav__link">
+    <span class="md-ellipsis">
+      How to Use These Scripts
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#additional-considerations" class="md-nav__link">
+    <span class="md-ellipsis">
+      Additional Considerations
+    </span>
+  </a>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+          
+          
+            <div class="md-content" data-md-component="content">
+              <article class="md-content__inner md-typeset">
+                
+                  
+
+
+  
+  
+
+
+<h1 id="cupcarbon-code-examples">CupCarbon Code Examples<a class="headerlink" href="#cupcarbon-code-examples" title="Permanent link">&para;</a></h1>
+<p>This page provides examples for creating and simulating Wireless Sensor Networks (WSNs) using the CupCarbon simulator.</p>
+<p><strong>Download:</strong> <a href="../../assets/code/cupcarbon_example.zip">CupCarbon Code Examples (ZIP)</a></p>
+<h2 id="example-categories">Example Categories<a class="headerlink" href="#example-categories" title="Permanent link">&para;</a></h2>
+<h3 id="router-node-scripts">Router Node Scripts<a class="headerlink" href="#router-node-scripts" title="Permanent link">&para;</a></h3>
+<p>These examples demonstrate how to implement router node scripts for message forwarding:</p>
+<h2 id="router-node-script-atget_routercsc">Router Node Script (atget_router.csc)<a class="headerlink" href="#router-node-script-atget_routercsc" title="Permanent link">&para;</a></h2>
+<p>This script creates a router node that forwards messages between sensor nodes. It's a fundamental component in a wireless sensor network simulation.</p>
+<h3 id="code-breakdown">Code Breakdown<a class="headerlink" href="#code-breakdown" title="Permanent link">&para;</a></h3>
+<div class="language-text highlight"><pre><span></span><code><span id="__span-0-1"><a id="__codelineno-0-1" name="__codelineno-0-1" href="#__codelineno-0-1"></a>atget id id
+</span><span id="__span-0-2"><a id="__codelineno-0-2" name="__codelineno-0-2" href="#__codelineno-0-2"></a>loop
+</span><span id="__span-0-3"><a id="__codelineno-0-3" name="__codelineno-0-3" href="#__codelineno-0-3"></a>wait 
+</span><span id="__span-0-4"><a id="__codelineno-0-4" name="__codelineno-0-4" href="#__codelineno-0-4"></a>read message
+</span><span id="__span-0-5"><a id="__codelineno-0-5" name="__codelineno-0-5" href="#__codelineno-0-5"></a>rdata message rid x
+</span><span id="__span-0-6"><a id="__codelineno-0-6" name="__codelineno-0-6" href="#__codelineno-0-6"></a>data message2 id x
+</span><span id="__span-0-7"><a id="__codelineno-0-7" name="__codelineno-0-7" href="#__codelineno-0-7"></a>send message2 * rid
+</span></code></pre></div>
+<h3 id="explanation">Explanation<a class="headerlink" href="#explanation" title="Permanent link">&para;</a></h3>
+<ul>
+<li><code>atget id id</code>: Gets the node's own ID and stores it in the variable <code>id</code></li>
+<li><code>loop</code>: Starts an infinite loop for continuous operation</li>
+<li><code>wait</code>: Pauses the script until a message is received</li>
+<li><code>read message</code>: Reads the received message into the variable <code>message</code></li>
+<li><code>rdata message rid x</code>: Extracts data from the message - the sender ID (<code>rid</code>) and the payload (<code>x</code>)</li>
+<li><code>data message2 id x</code>: Creates a new message containing the router's ID and the original payload</li>
+<li><code>send message2 * rid</code>: Forwards the message to the node with ID matching <code>rid</code></li>
+</ul>
+<h3 id="use-case">Use Case<a class="headerlink" href="#use-case" title="Permanent link">&para;</a></h3>
+<p>This router script is used to:</p>
+<ol>
+<li>Extend the range of a wireless sensor network</li>
+<li>Enable communication between nodes that are not within direct range of each other</li>
+<li>Create multi-hop network topologies for larger deployments</li>
+</ol>
+<h2 id="motion-detector-script-motion_detectorcsc">Motion Detector Script (motion_detector.csc)<a class="headerlink" href="#motion-detector-script-motion_detectorcsc" title="Permanent link">&para;</a></h2>
+<p>This script implements a motion detector sensor that triggers when movement is detected in its vicinity.</p>
+<h3 id="code-breakdown_1">Code Breakdown<a class="headerlink" href="#code-breakdown_1" title="Permanent link">&para;</a></h3>
+<div class="language-text highlight"><pre><span></span><code><span id="__span-1-1"><a id="__codelineno-1-1" name="__codelineno-1-1" href="#__codelineno-1-1"></a>atget id id
+</span><span id="__span-1-2"><a id="__codelineno-1-2" name="__codelineno-1-2" href="#__codelineno-1-2"></a>loop
+</span><span id="__span-1-3"><a id="__codelineno-1-3" name="__codelineno-1-3" href="#__codelineno-1-3"></a>areadsensor value
+</span><span id="__span-1-4"><a id="__codelineno-1-4" name="__codelineno-1-4" href="#__codelineno-1-4"></a>if(value&gt;0)
+</span><span id="__span-1-5"><a id="__codelineno-1-5" name="__codelineno-1-5" href="#__codelineno-1-5"></a>    data msg id value
+</span><span id="__span-1-6"><a id="__codelineno-1-6" name="__codelineno-1-6" href="#__codelineno-1-6"></a>    send msg *
+</span><span id="__span-1-7"><a id="__codelineno-1-7" name="__codelineno-1-7" href="#__codelineno-1-7"></a>end
+</span><span id="__span-1-8"><a id="__codelineno-1-8" name="__codelineno-1-8" href="#__codelineno-1-8"></a>delay 1000
+</span></code></pre></div>
+<h3 id="explanation_1">Explanation<a class="headerlink" href="#explanation_1" title="Permanent link">&para;</a></h3>
+<ul>
+<li><code>atget id id</code>: Gets the node's own ID and stores it in the variable <code>id</code></li>
+<li><code>loop</code>: Starts an infinite loop for continuous monitoring</li>
+<li><code>areadsensor value</code>: Reads the analog sensor value (0 = no motion, &gt;0 = motion detected)</li>
+<li><code>if(value&gt;0)</code>: Checks if motion is detected</li>
+<li><code>data msg id value</code>: Creates a message with the node's ID and the sensor value</li>
+<li><code>send msg *</code>: Broadcasts the message to all nodes in range</li>
+<li><code>delay 1000</code>: Waits 1 second before checking for motion again</li>
+</ul>
+<h3 id="use-case_1">Use Case<a class="headerlink" href="#use-case_1" title="Permanent link">&para;</a></h3>
+<p>This motion detector script is useful for:</p>
+<ol>
+<li>Security systems and intrusion detection</li>
+<li>Automatic lighting systems that activate when someone enters a room</li>
+<li>Occupancy monitoring in smart buildings</li>
+<li>Triggering cameras or other devices when motion is detected</li>
+</ol>
+<h2 id="light-control-script-light_controlcsc">Light Control Script (light_control.csc)<a class="headerlink" href="#light-control-script-light_controlcsc" title="Permanent link">&para;</a></h2>
+<p>This script controls a light node based on messages received from motion sensors.</p>
+<h3 id="code-breakdown_2">Code Breakdown<a class="headerlink" href="#code-breakdown_2" title="Permanent link">&para;</a></h3>
+<div class="language-text highlight"><pre><span></span><code><span id="__span-2-1"><a id="__codelineno-2-1" name="__codelineno-2-1" href="#__codelineno-2-1"></a>atget id id
+</span><span id="__span-2-2"><a id="__codelineno-2-2" name="__codelineno-2-2" href="#__codelineno-2-2"></a>loop
+</span><span id="__span-2-3"><a id="__codelineno-2-3" name="__codelineno-2-3" href="#__codelineno-2-3"></a>wait
+</span><span id="__span-2-4"><a id="__codelineno-2-4" name="__codelineno-2-4" href="#__codelineno-2-4"></a>read msg
+</span><span id="__span-2-5"><a id="__codelineno-2-5" name="__codelineno-2-5" href="#__codelineno-2-5"></a>rdata msg src value
+</span><span id="__span-2-6"><a id="__codelineno-2-6" name="__codelineno-2-6" href="#__codelineno-2-6"></a>if(value&gt;0)
+</span><span id="__span-2-7"><a id="__codelineno-2-7" name="__codelineno-2-7" href="#__codelineno-2-7"></a>    mark 1
+</span><span id="__span-2-8"><a id="__codelineno-2-8" name="__codelineno-2-8" href="#__codelineno-2-8"></a>    delay 5000
+</span><span id="__span-2-9"><a id="__codelineno-2-9" name="__codelineno-2-9" href="#__codelineno-2-9"></a>    mark 0
+</span><span id="__span-2-10"><a id="__codelineno-2-10" name="__codelineno-2-10" href="#__codelineno-2-10"></a>end
+</span></code></pre></div>
+<h3 id="explanation_2">Explanation<a class="headerlink" href="#explanation_2" title="Permanent link">&para;</a></h3>
+<ul>
+<li><code>atget id id</code>: Gets the node's own ID and stores it in the variable <code>id</code></li>
+<li><code>loop</code>: Starts an infinite loop to continuously check for messages</li>
+<li><code>wait</code>: Pauses the script until a message is received</li>
+<li><code>read msg</code>: Reads the received message into the variable <code>msg</code></li>
+<li><code>rdata msg src value</code>: Extracts the sender ID and sensor value from the message</li>
+<li><code>if(value&gt;0)</code>: Checks if the received value indicates motion</li>
+<li><code>mark 1</code>: Turns on the light (sets the node marker to 1)</li>
+<li><code>delay 5000</code>: Keeps the light on for 5 seconds</li>
+<li><code>mark 0</code>: Turns off the light (sets the node marker to 0)</li>
+</ul>
+<h3 id="use-case_2">Use Case<a class="headerlink" href="#use-case_2" title="Permanent link">&para;</a></h3>
+<p>This light control script can be used to:</p>
+<ol>
+<li>Create energy-efficient lighting systems that only turn on when needed</li>
+<li>Simulate smart home lighting scenarios</li>
+<li>Test motion-based automation systems</li>
+<li>Demonstrate IoT device interaction in a network</li>
+</ol>
+<h2 id="temperature-monitoring-script-temperature_monitorcsc">Temperature Monitoring Script (temperature_monitor.csc)<a class="headerlink" href="#temperature-monitoring-script-temperature_monitorcsc" title="Permanent link">&para;</a></h2>
+<p>This script monitors temperature and sends alerts when the temperature exceeds a threshold.</p>
+<h3 id="code-breakdown_3">Code Breakdown<a class="headerlink" href="#code-breakdown_3" title="Permanent link">&para;</a></h3>
+<div class="language-text highlight"><pre><span></span><code><span id="__span-3-1"><a id="__codelineno-3-1" name="__codelineno-3-1" href="#__codelineno-3-1"></a>atget id id
+</span><span id="__span-3-2"><a id="__codelineno-3-2" name="__codelineno-3-2" href="#__codelineno-3-2"></a>set threshold 25
+</span><span id="__span-3-3"><a id="__codelineno-3-3" name="__codelineno-3-3" href="#__codelineno-3-3"></a>loop
+</span><span id="__span-3-4"><a id="__codelineno-3-4" name="__codelineno-3-4" href="#__codelineno-3-4"></a>  sensing
+</span><span id="__span-3-5"><a id="__codelineno-3-5" name="__codelineno-3-5" href="#__codelineno-3-5"></a>  areadsensor temp
+</span><span id="__span-3-6"><a id="__codelineno-3-6" name="__codelineno-3-6" href="#__codelineno-3-6"></a>  if(temp &gt; threshold)
+</span><span id="__span-3-7"><a id="__codelineno-3-7" name="__codelineno-3-7" href="#__codelineno-3-7"></a>    data tempAlert id temp
+</span><span id="__span-3-8"><a id="__codelineno-3-8" name="__codelineno-3-8" href="#__codelineno-3-8"></a>    send tempAlert *
+</span><span id="__span-3-9"><a id="__codelineno-3-9" name="__codelineno-3-9" href="#__codelineno-3-9"></a>  end
+</span><span id="__span-3-10"><a id="__codelineno-3-10" name="__codelineno-3-10" href="#__codelineno-3-10"></a>  delay 5000
+</span></code></pre></div>
+<h3 id="explanation_3">Explanation<a class="headerlink" href="#explanation_3" title="Permanent link">&para;</a></h3>
+<ul>
+<li><code>atget id id</code>: Gets the node's own ID and stores it in the variable <code>id</code></li>
+<li><code>set threshold 25</code>: Sets the temperature threshold to 25 degrees</li>
+<li><code>loop</code>: Starts an infinite loop for continuous monitoring</li>
+<li><code>sensing</code>: Activates the sensor to collect data</li>
+<li><code>areadsensor temp</code>: Reads the temperature value</li>
+<li><code>if(temp &gt; threshold)</code>: Checks if the temperature exceeds the defined threshold</li>
+<li><code>data tempAlert id temp</code>: Creates an alert message with the node ID and temperature</li>
+<li><code>send tempAlert *</code>: Broadcasts the alert to all nodes</li>
+<li><code>delay 5000</code>: Waits 5 seconds before the next temperature check</li>
+</ul>
+<h3 id="use-case_3">Use Case<a class="headerlink" href="#use-case_3" title="Permanent link">&para;</a></h3>
+<p>This temperature monitoring script is suitable for:</p>
+<ol>
+<li>Environmental monitoring systems</li>
+<li>HVAC control in smart buildings</li>
+<li>Fire detection and prevention systems</li>
+<li>Agricultural monitoring for optimal growing conditions</li>
+</ol>
+<h2 id="gateway-node-script-gatewaycsc">Gateway Node Script (gateway.csc)<a class="headerlink" href="#gateway-node-script-gatewaycsc" title="Permanent link">&para;</a></h2>
+<p>This script implements a gateway node that collects data from sensor nodes and can communicate with external systems.</p>
+<h3 id="code-breakdown_4">Code Breakdown<a class="headerlink" href="#code-breakdown_4" title="Permanent link">&para;</a></h3>
+<div class="language-text highlight"><pre><span></span><code><span id="__span-4-1"><a id="__codelineno-4-1" name="__codelineno-4-1" href="#__codelineno-4-1"></a>atget id id
+</span><span id="__span-4-2"><a id="__codelineno-4-2" name="__codelineno-4-2" href="#__codelineno-4-2"></a>loop
+</span><span id="__span-4-3"><a id="__codelineno-4-3" name="__codelineno-4-3" href="#__codelineno-4-3"></a>  wait
+</span><span id="__span-4-4"><a id="__codelineno-4-4" name="__codelineno-4-4" href="#__codelineno-4-4"></a>  read message
+</span><span id="__span-4-5"><a id="__codelineno-4-5" name="__codelineno-4-5" href="#__codelineno-4-5"></a>  rdata message src data
+</span><span id="__span-4-6"><a id="__codelineno-4-6" name="__codelineno-4-6" href="#__codelineno-4-6"></a>  data log id src data
+</span><span id="__span-4-7"><a id="__codelineno-4-7" name="__codelineno-4-7" href="#__codelineno-4-7"></a>  printfile log.txt log
+</span><span id="__span-4-8"><a id="__codelineno-4-8" name="__codelineno-4-8" href="#__codelineno-4-8"></a>  delay 100
+</span></code></pre></div>
+<h3 id="explanation_4">Explanation<a class="headerlink" href="#explanation_4" title="Permanent link">&para;</a></h3>
+<ul>
+<li><code>atget id id</code>: Gets the node's own ID and stores it in the variable <code>id</code></li>
+<li><code>loop</code>: Starts an infinite loop for continuous operation</li>
+<li><code>wait</code>: Waits for incoming messages</li>
+<li><code>read message</code>: Reads the received message</li>
+<li><code>rdata message src data</code>: Extracts the sender ID and payload from the message</li>
+<li><code>data log id src data</code>: Creates a log entry with gateway ID, source ID, and the data</li>
+<li><code>printfile log.txt log</code>: Writes the log entry to a file named "log.txt"</li>
+<li><code>delay 100</code>: Brief pause before processing the next message</li>
+</ul>
+<h3 id="use-case_4">Use Case<a class="headerlink" href="#use-case_4" title="Permanent link">&para;</a></h3>
+<p>This gateway script can be used for:</p>
+<ol>
+<li>Data collection from multiple sensors in an IoT network</li>
+<li>Creating a bridge between sensor networks and cloud platforms</li>
+<li>Logging sensor data for later analysis</li>
+<li>Monitoring the overall activity in a sensor network</li>
+</ol>
+<h2 id="cupcarbon-configuration-files">CupCarbon Configuration Files<a class="headerlink" href="#cupcarbon-configuration-files" title="Permanent link">&para;</a></h2>
+<p>CupCarbon uses several configuration files to define node properties, radio settings, and movement patterns. Below are examples and explanations of these configuration files.</p>
+<h3 id="node-configuration-files">Node Configuration Files<a class="headerlink" href="#node-configuration-files" title="Permanent link">&para;</a></h3>
+<p>These files define the properties of different sensor nodes in the simulation.</p>
+<h4 id="sensor-node-configuration-sensor">Sensor Node Configuration (sensor)<a class="headerlink" href="#sensor-node-configuration-sensor" title="Permanent link">&para;</a></h4>
+<div class="language-yaml highlight"><pre><span></span><code><span id="__span-5-1"><a id="__codelineno-5-1" name="__codelineno-5-1" href="#__codelineno-5-1"></a><span class="l l-Scalar l-Scalar-Plain">List of parameters</span>
+</span><span id="__span-5-2"><a id="__codelineno-5-2" name="__codelineno-5-2" href="#__codelineno-5-2"></a><span class="l l-Scalar l-Scalar-Plain">------------------------------------------</span>
+</span><span id="__span-5-3"><a id="__codelineno-5-3" name="__codelineno-5-3" href="#__codelineno-5-3"></a><span class="l l-Scalar l-Scalar-Plain">device_type:1</span>
+</span><span id="__span-5-4"><a id="__codelineno-5-4" name="__codelineno-5-4" href="#__codelineno-5-4"></a><span class="l l-Scalar l-Scalar-Plain">device_id:402</span>
+</span><span id="__span-5-5"><a id="__codelineno-5-5" name="__codelineno-5-5" href="#__codelineno-5-5"></a><span class="l l-Scalar l-Scalar-Plain">device_longitude:55.47531425209045</span>
+</span><span id="__span-5-6"><a id="__codelineno-5-6" name="__codelineno-5-6" href="#__codelineno-5-6"></a><span class="l l-Scalar l-Scalar-Plain">device_latitude:25.303690903218275</span>
+</span><span id="__span-5-7"><a id="__codelineno-5-7" name="__codelineno-5-7" href="#__codelineno-5-7"></a><span class="l l-Scalar l-Scalar-Plain">device_elevation:0.0</span>
+</span><span id="__span-5-8"><a id="__codelineno-5-8" name="__codelineno-5-8" href="#__codelineno-5-8"></a><span class="l l-Scalar l-Scalar-Plain">device_radius:0.0</span>
+</span><span id="__span-5-9"><a id="__codelineno-5-9" name="__codelineno-5-9" href="#__codelineno-5-9"></a><span class="l l-Scalar l-Scalar-Plain">device_hide:1</span>
+</span><span id="__span-5-10"><a id="__codelineno-5-10" name="__codelineno-5-10" href="#__codelineno-5-10"></a><span class="l l-Scalar l-Scalar-Plain">device_pic:0</span>
+</span><span id="__span-5-11"><a id="__codelineno-5-11" name="__codelineno-5-11" href="#__codelineno-5-11"></a><span class="l l-Scalar l-Scalar-Plain">device_draw_battery:false</span>
+</span><span id="__span-5-12"><a id="__codelineno-5-12" name="__codelineno-5-12" href="#__codelineno-5-12"></a><span class="l l-Scalar l-Scalar-Plain">device_sensor_unit_radius:25.0</span>
+</span><span id="__span-5-13"><a id="__codelineno-5-13" name="__codelineno-5-13" href="#__codelineno-5-13"></a><span class="l l-Scalar l-Scalar-Plain">device_script_file_name:atget_hello.csc</span>
+</span></code></pre></div>
+<p><strong>Explanation:</strong>
+- <code>device_type:1</code>: Indicates a standard sensor node
+- <code>device_id:402</code>: Unique identifier for this sensor
+- <code>device_longitude/latitude</code>: Geographic coordinates of the node
+- <code>device_elevation</code>: Height above ground level (0.0 = ground level)
+- <code>device_radius</code>: Physical radius of the node (0.0 = default size)
+- <code>device_hide:1</code>: Node visibility setting (1 = visible in simulation)
+- <code>device_draw_battery:false</code>: Whether to display battery status
+- <code>device_sensor_unit_radius:25.0</code>: Sensing range of the node
+- <code>device_script_file_name:atget_hello.csc</code>: Script that controls this node's behavior</p>
+<h4 id="iot-device-configuration-iot">IoT Device Configuration (iot)<a class="headerlink" href="#iot-device-configuration-iot" title="Permanent link">&para;</a></h4>
+<div class="language-yaml highlight"><pre><span></span><code><span id="__span-6-1"><a id="__codelineno-6-1" name="__codelineno-6-1" href="#__codelineno-6-1"></a><span class="l l-Scalar l-Scalar-Plain">List of parameters</span>
+</span><span id="__span-6-2"><a id="__codelineno-6-2" name="__codelineno-6-2" href="#__codelineno-6-2"></a><span class="l l-Scalar l-Scalar-Plain">------------------------------------------</span>
+</span><span id="__span-6-3"><a id="__codelineno-6-3" name="__codelineno-6-3" href="#__codelineno-6-3"></a><span class="l l-Scalar l-Scalar-Plain">device_type:13</span>
+</span><span id="__span-6-4"><a id="__codelineno-6-4" name="__codelineno-6-4" href="#__codelineno-6-4"></a><span class="l l-Scalar l-Scalar-Plain">device_id:200</span>
+</span><span id="__span-6-5"><a id="__codelineno-6-5" name="__codelineno-6-5" href="#__codelineno-6-5"></a><span class="l l-Scalar l-Scalar-Plain">device_longitude:55.47740345516205</span>
+</span><span id="__span-6-6"><a id="__codelineno-6-6" name="__codelineno-6-6" href="#__codelineno-6-6"></a><span class="l l-Scalar l-Scalar-Plain">device_latitude:25.30307910615224</span>
+</span><span id="__span-6-7"><a id="__codelineno-6-7" name="__codelineno-6-7" href="#__codelineno-6-7"></a><span class="l l-Scalar l-Scalar-Plain">device_elevation:0.0</span>
+</span><span id="__span-6-8"><a id="__codelineno-6-8" name="__codelineno-6-8" href="#__codelineno-6-8"></a><span class="l l-Scalar l-Scalar-Plain">device_radius:0.0</span>
+</span><span id="__span-6-9"><a id="__codelineno-6-9" name="__codelineno-6-9" href="#__codelineno-6-9"></a><span class="l l-Scalar l-Scalar-Plain">device_hide:1</span>
+</span><span id="__span-6-10"><a id="__codelineno-6-10" name="__codelineno-6-10" href="#__codelineno-6-10"></a><span class="l l-Scalar l-Scalar-Plain">device_draw_battery:false</span>
+</span><span id="__span-6-11"><a id="__codelineno-6-11" name="__codelineno-6-11" href="#__codelineno-6-11"></a><span class="l l-Scalar l-Scalar-Plain">device_sensor_unit_radius:20.0</span>
+</span><span id="__span-6-12"><a id="__codelineno-6-12" name="__codelineno-6-12" href="#__codelineno-6-12"></a><span class="l l-Scalar l-Scalar-Plain">device_pic:0</span>
+</span><span id="__span-6-13"><a id="__codelineno-6-13" name="__codelineno-6-13" href="#__codelineno-6-13"></a><span class="l l-Scalar l-Scalar-Plain">device_script_file_name:atget_recive.csc</span>
+</span></code></pre></div>
+<p><strong>Explanation:</strong>
+- <code>device_type:13</code>: Indicates an IoT device node
+- <code>device_id:200</code>: Unique identifier for this IoT device
+- <code>device_sensor_unit_radius:20.0</code>: Sensing range (smaller than regular sensor)
+- <code>device_script_file_name:atget_recive.csc</code>: Script for receiving and processing data</p>
+<h4 id="mobile-node-configuration-mobile">Mobile Node Configuration (mobile)<a class="headerlink" href="#mobile-node-configuration-mobile" title="Permanent link">&para;</a></h4>
+<div class="language-yaml highlight"><pre><span></span><code><span id="__span-7-1"><a id="__codelineno-7-1" name="__codelineno-7-1" href="#__codelineno-7-1"></a><span class="l l-Scalar l-Scalar-Plain">List of parameters</span>
+</span><span id="__span-7-2"><a id="__codelineno-7-2" name="__codelineno-7-2" href="#__codelineno-7-2"></a><span class="l l-Scalar l-Scalar-Plain">------------------------------------------</span>
+</span><span id="__span-7-3"><a id="__codelineno-7-3" name="__codelineno-7-3" href="#__codelineno-7-3"></a><span class="l l-Scalar l-Scalar-Plain">device_type:6</span>
+</span><span id="__span-7-4"><a id="__codelineno-7-4" name="__codelineno-7-4" href="#__codelineno-7-4"></a><span class="l l-Scalar l-Scalar-Plain">device_id:35</span>
+</span><span id="__span-7-5"><a id="__codelineno-7-5" name="__codelineno-7-5" href="#__codelineno-7-5"></a><span class="l l-Scalar l-Scalar-Plain">device_longitude:55.47770619392395</span>
+</span><span id="__span-7-6"><a id="__codelineno-7-6" name="__codelineno-7-6" href="#__codelineno-7-6"></a><span class="l l-Scalar l-Scalar-Plain">device_latitude:25.303692700131606</span>
+</span><span id="__span-7-7"><a id="__codelineno-7-7" name="__codelineno-7-7" href="#__codelineno-7-7"></a><span class="l l-Scalar l-Scalar-Plain">device_elevation:0.0</span>
+</span><span id="__span-7-8"><a id="__codelineno-7-8" name="__codelineno-7-8" href="#__codelineno-7-8"></a><span class="l l-Scalar l-Scalar-Plain">device_radius:8.0</span>
+</span><span id="__span-7-9"><a id="__codelineno-7-9" name="__codelineno-7-9" href="#__codelineno-7-9"></a><span class="l l-Scalar l-Scalar-Plain">device_hide:1</span>
+</span><span id="__span-7-10"><a id="__codelineno-7-10" name="__codelineno-7-10" href="#__codelineno-7-10"></a><span class="l l-Scalar l-Scalar-Plain">device_gps_file_name:building.gps</span>
+</span></code></pre></div>
+<p><strong>Explanation:</strong>
+- <code>device_type:6</code>: Indicates a mobile node that can move
+- <code>device_id:35</code>: Unique identifier for this mobile node
+- <code>device_radius:8.0</code>: Larger radius to represent a moving object (e.g., vehicle)
+- <code>device_gps_file_name:building.gps</code>: GPS file that defines the movement path</p>
+<h3 id="radio-configuration-files">Radio Configuration Files<a class="headerlink" href="#radio-configuration-files" title="Permanent link">&para;</a></h3>
+<p>These files define the wireless communication capabilities of sensor nodes.</p>
+<h4 id="standard-sensor-radio-configuration-sensor_radiossensor">Standard Sensor Radio Configuration (sensor_radios/sensor)<a class="headerlink" href="#standard-sensor-radio-configuration-sensor_radiossensor" title="Permanent link">&para;</a></h4>
+<div class="language-text highlight"><pre><span></span><code><span id="__span-8-1"><a id="__codelineno-8-1" name="__codelineno-8-1" href="#__codelineno-8-1"></a>List of radio Modules for the Sensor402
+</span><span id="__span-8-2"><a id="__codelineno-8-2" name="__codelineno-8-2" href="#__codelineno-8-2"></a>------------------------------------------
+</span><span id="__span-8-3"><a id="__codelineno-8-3" name="__codelineno-8-3" href="#__codelineno-8-3"></a>current_radio_name:radio1
+</span><span id="__span-8-4"><a id="__codelineno-8-4" name="__codelineno-8-4" href="#__codelineno-8-4"></a>radio_standard:ZIGBEE
+</span><span id="__span-8-5"><a id="__codelineno-8-5" name="__codelineno-8-5" href="#__codelineno-8-5"></a>radio_my:0
+</span><span id="__span-8-6"><a id="__codelineno-8-6" name="__codelineno-8-6" href="#__codelineno-8-6"></a>radio_channel:0
+</span><span id="__span-8-7"><a id="__codelineno-8-7" name="__codelineno-8-7" href="#__codelineno-8-7"></a>radio_network_id:13108
+</span><span id="__span-8-8"><a id="__codelineno-8-8" name="__codelineno-8-8" href="#__codelineno-8-8"></a>radio_radius:30.0
+</span><span id="__span-8-9"><a id="__codelineno-8-9" name="__codelineno-8-9" href="#__codelineno-8-9"></a>radio_etx:5.92E-5
+</span><span id="__span-8-10"><a id="__codelineno-8-10" name="__codelineno-8-10" href="#__codelineno-8-10"></a>radio_erx:2.86E-5
+</span><span id="__span-8-11"><a id="__codelineno-8-11" name="__codelineno-8-11" href="#__codelineno-8-11"></a>radio_esleep:1.0E-7
+</span><span id="__span-8-12"><a id="__codelineno-8-12" name="__codelineno-8-12" href="#__codelineno-8-12"></a>radio_elisten:1.0E-6
+</span><span id="__span-8-13"><a id="__codelineno-8-13" name="__codelineno-8-13" href="#__codelineno-8-13"></a>radio_data_rate:250000
+</span><span id="__span-8-14"><a id="__codelineno-8-14" name="__codelineno-8-14" href="#__codelineno-8-14"></a>conso_tx_model:Classical (Tx)
+</span><span id="__span-8-15"><a id="__codelineno-8-15" name="__codelineno-8-15" href="#__codelineno-8-15"></a>conso_rx_model:Classical (Rx)
+</span></code></pre></div>
+<p><strong>Explanation:</strong>
+- <code>radio_standard:ZIGBEE</code>: Using ZigBee protocol for communication
+- <code>radio_radius:30.0</code>: Maximum communication range in meters
+- <code>radio_network_id:13108</code>: Network identifier for this radio
+- <code>radio_etx:5.92E-5</code>, <code>radio_erx:2.86E-5</code>: Energy consumption for transmitting/receiving
+- <code>radio_data_rate:250000</code>: Data transmission rate in bits per second</p>
+<h4 id="iot-device-radio-configuration-sensor_radiosiot">IoT Device Radio Configuration (sensor_radios/iot)<a class="headerlink" href="#iot-device-radio-configuration-sensor_radiosiot" title="Permanent link">&para;</a></h4>
+<div class="language-text highlight"><pre><span></span><code><span id="__span-9-1"><a id="__codelineno-9-1" name="__codelineno-9-1" href="#__codelineno-9-1"></a>List of radio Modules for the Sensor392
+</span><span id="__span-9-2"><a id="__codelineno-9-2" name="__codelineno-9-2" href="#__codelineno-9-2"></a>------------------------------------------
+</span><span id="__span-9-3"><a id="__codelineno-9-3" name="__codelineno-9-3" href="#__codelineno-9-3"></a>current_radio_name:radio1
+</span><span id="__span-9-4"><a id="__codelineno-9-4" name="__codelineno-9-4" href="#__codelineno-9-4"></a>radio_standard:ZIGBEE
+</span><span id="__span-9-5"><a id="__codelineno-9-5" name="__codelineno-9-5" href="#__codelineno-9-5"></a>radio_my:0
+</span><span id="__span-9-6"><a id="__codelineno-9-6" name="__codelineno-9-6" href="#__codelineno-9-6"></a>radio_channel:0
+</span><span id="__span-9-7"><a id="__codelineno-9-7" name="__codelineno-9-7" href="#__codelineno-9-7"></a>radio_network_id:13108
+</span><span id="__span-9-8"><a id="__codelineno-9-8" name="__codelineno-9-8" href="#__codelineno-9-8"></a>radio_radius:20.0
+</span><span id="__span-9-9"><a id="__codelineno-9-9" name="__codelineno-9-9" href="#__codelineno-9-9"></a>radio_etx:5.92E-5
+</span><span id="__span-9-10"><a id="__codelineno-9-10" name="__codelineno-9-10" href="#__codelineno-9-10"></a>radio_erx:2.86E-5
+</span><span id="__span-9-11"><a id="__codelineno-9-11" name="__codelineno-9-11" href="#__codelineno-9-11"></a>radio_esleep:1.0E-7
+</span><span id="__span-9-12"><a id="__codelineno-9-12" name="__codelineno-9-12" href="#__codelineno-9-12"></a>radio_elisten:1.0E-6
+</span><span id="__span-9-13"><a id="__codelineno-9-13" name="__codelineno-9-13" href="#__codelineno-9-13"></a>radio_data_rate:250000
+</span><span id="__span-9-14"><a id="__codelineno-9-14" name="__codelineno-9-14" href="#__codelineno-9-14"></a>conso_tx_model:Classical (Tx)
+</span><span id="__span-9-15"><a id="__codelineno-9-15" name="__codelineno-9-15" href="#__codelineno-9-15"></a>conso_rx_model:Classical (Rx)
+</span></code></pre></div>
+<p><strong>Explanation:</strong>
+- Similar to the standard sensor but with <code>radio_radius:20.0</code>: Shorter communication range
+- This creates a realistic scenario where IoT devices have more limited communication capabilities</p>
+<h3 id="gps-movement-file-buildinggps">GPS Movement File (building.gps)<a class="headerlink" href="#gps-movement-file-buildinggps" title="Permanent link">&para;</a></h3>
+<p>GPS files define movement paths for mobile nodes. Below is a sample of the building.gps file:</p>
+<div class="language-text highlight"><pre><span></span><code><span id="__span-10-1"><a id="__codelineno-10-1" name="__codelineno-10-1" href="#__codelineno-10-1"></a>Route name
+</span><span id="__span-10-2"><a id="__codelineno-10-2" name="__codelineno-10-2" href="#__codelineno-10-2"></a>City one
+</span><span id="__span-10-3"><a id="__codelineno-10-3" name="__codelineno-10-3" href="#__codelineno-10-3"></a>City two
+</span><span id="__span-10-4"><a id="__codelineno-10-4" name="__codelineno-10-4" href="#__codelineno-10-4"></a>false
+</span><span id="__span-10-5"><a id="__codelineno-10-5" name="__codelineno-10-5" href="#__codelineno-10-5"></a>10
+</span><span id="__span-10-6"><a id="__codelineno-10-6" name="__codelineno-10-6" href="#__codelineno-10-6"></a>0 55.47838747501373 25.303067083442635 0.0 4.0
+</span><span id="__span-10-7"><a id="__codelineno-10-7" name="__codelineno-10-7" href="#__codelineno-10-7"></a>1 55.47854874283075 25.303066780333015 0.0 4.0
+</span><span id="__span-10-8"><a id="__codelineno-10-8" name="__codelineno-10-8" href="#__codelineno-10-8"></a>1 55.478710010647774 25.303066477223396 0.0 4.0
+</span><span id="__span-10-9"><a id="__codelineno-10-9" name="__codelineno-10-9" href="#__codelineno-10-9"></a>// ...more path points...
+</span></code></pre></div>
+<p><strong>Explanation:</strong>
+- First line: Route name
+- Second line: Starting location name
+- Third line: Destination name
+- Fourth line: Route visibility flag
+- Fifth line: Number of points in the route
+- Remaining lines: Path points in format <code>[type] [longitude] [latitude] [elevation] [speed]</code>
+  - Type 0 = starting point, Type 1 = path point
+  - Last two values define elevation and movement speed</p>
+<h3 id="how-to-use-configuration-files">How to Use Configuration Files<a class="headerlink" href="#how-to-use-configuration-files" title="Permanent link">&para;</a></h3>
+<ol>
+<li><strong>Node Configuration</strong>:</li>
+<li>Create nodes in CupCarbon by right-clicking on the map</li>
+<li>Configure properties through the node dialog or directly edit configuration files</li>
+<li>
+<p>Assign scripts to nodes by specifying the script filename</p>
+</li>
+<li>
+<p><strong>Radio Configuration</strong>:</p>
+</li>
+<li>Access through the radio tab in node properties</li>
+<li>Adjust range and energy parameters based on your simulation requirements</li>
+<li>
+<p>Match network IDs for nodes that need to communicate</p>
+</li>
+<li>
+<p><strong>GPS Movement</strong>:</p>
+</li>
+<li>Create paths by clicking on the map to place waypoints</li>
+<li>Save as GPS files for reuse</li>
+<li>Assign to mobile nodes through the node configuration</li>
+<li>Adjust speed values for realistic movement simulation</li>
+</ol>
+<p>These configuration files work together to create a realistic IoT simulation environment where:
+- Sensors collect and transmit data using their scripts
+- Radio configurations determine communication capabilities and energy consumption
+- Mobile nodes move along predefined paths to simulate dynamic environments</p>
+<h2 id="complete-iot-simulation-setup">Complete IoT Simulation Setup<a class="headerlink" href="#complete-iot-simulation-setup" title="Permanent link">&para;</a></h2>
+<p>A typical CupCarbon simulation combines the script files discussed earlier with appropriate configuration settings:</p>
+<ol>
+<li><strong>Stationary sensors</strong> (using motion_detector.csc) placed at strategic locations</li>
+<li><strong>Router nodes</strong> (using atget_router.csc) positioned to ensure network coverage</li>
+<li><strong>Gateway node</strong> (using gateway.csc) collecting data from the network</li>
+<li><strong>Mobile nodes</strong> following paths to simulate moving objects in the environment</li>
+</ol>
+<p>This creates a comprehensive IoT simulation that can model real-world applications like smart buildings, traffic monitoring, or environmental sensing.</p>
+<h2 id="how-to-use-these-scripts">How to Use These Scripts<a class="headerlink" href="#how-to-use-these-scripts" title="Permanent link">&para;</a></h2>
+<ol>
+<li>Open CupCarbon simulation environment</li>
+<li>Create new sensor nodes for each script type needed</li>
+<li>Assign the appropriate script to each node</li>
+<li>Configure the network topology by placing nodes appropriately</li>
+<li>Run the simulation to observe the IoT network behavior</li>
+</ol>
+<h2 id="additional-considerations">Additional Considerations<a class="headerlink" href="#additional-considerations" title="Permanent link">&para;</a></h2>
+<ul>
+<li>Adjust thresholds and delay times based on your specific requirements</li>
+<li>For larger networks, use multiple router nodes to ensure proper message propagation</li>
+<li>Consider energy consumption by optimizing sensing and transmission frequencies</li>
+<li>Test your network under different conditions to ensure reliability</li>
+<li>Use the CupCarbon visualization tools to monitor network activity during simulation</li>
+</ul>
+
+
+
+
+
+
+
+
+
+
+
+
+                
+              </article>
+            </div>
+          
+          
+<script>var target=document.getElementById(location.hash.slice(1));target&&target.name&&(target.checked=target.name.startsWith("__tabbed_"))</script>
+        </div>
+        
+          <button type="button" class="md-top md-icon" data-md-component="top" hidden>
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M13 20h-2V8l-5.5 5.5-1.42-1.42L12 4.16l7.92 7.92-1.42 1.42L13 8z"/></svg>
+  Back to top
+</button>
+        
+      </main>
+      
+        <footer class="md-footer">
+  
+  <div class="md-footer-meta md-typeset">
+    <div class="md-footer-meta__inner md-grid">
+      <div class="md-copyright">
+  
+  
+    Made with
+    <a href="https://squidfunk.github.io/mkdocs-material/" target="_blank" rel="noopener">
+      Material for MkDocs
+    </a>
+  
+</div>
+      
+        <div class="md-social">
+  
+    
+    
+    
+    
+      
+      
+    
+    <a href="https://github.com/likhithkanigolla" target="_blank" rel="noopener" title="github.com" class="md-social__link">
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 496 512"><!--! Font Awesome Free 6.7.2 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2024 Fonticons, Inc.--><path d="M165.9 397.4c0 2-2.3 3.6-5.2 3.6-3.3.3-5.6-1.3-5.6-3.6 0-2 2.3-3.6 5.2-3.6 3-.3 5.6 1.3 5.6 3.6m-31.1-4.5c-.7 2 1.3 4.3 4.3 4.9 2.6 1 5.6 0 6.2-2s-1.3-4.3-4.3-5.2c-2.6-.7-5.5.3-6.2 2.3m44.2-1.7c-2.9.7-4.9 2.6-4.6 4.9.3 2 2.9 3.3 5.9 2.6 2.9-.7 4.9-2.6 4.6-4.6-.3-1.9-3-3.2-5.9-2.9M244.8 8C106.1 8 0 113.3 0 252c0 110.9 69.8 205.8 169.5 239.2 12.8 2.3 17.3-5.6 17.3-12.1 0-6.2-.3-40.4-.3-61.4 0 0-70 15-84.7-29.8 0 0-11.4-29.1-27.8-36.6 0 0-22.9-15.7 1.6-15.4 0 0 24.9 2 38.6 25.8 21.9 38.6 58.6 27.5 72.9 20.9 2.3-16 8.8-27.1 16-33.7-55.9-6.2-112.3-14.3-112.3-110.5 0-27.5 7.6-41.3 23.6-58.9-2.6-6.5-11.1-33.3 2.6-67.9 20.9-6.5 69 27 69 27 20-5.6 41.5-8.5 62.8-8.5s42.8 2.9 62.8 8.5c0 0 48.1-33.6 69-27 13.7 34.7 5.2 61.4 2.6 67.9 16 17.7 25.8 31.5 25.8 58.9 0 96.5-58.9 104.2-114.8 110.5 9.2 7.9 17 22.9 17 46.4 0 33.7-.3 75.4-.3 83.6 0 6.5 4.6 14.4 17.3 12.1C428.2 457.8 496 362.9 496 252 496 113.3 383.5 8 244.8 8M97.2 352.9c-1.3 1-1 3.3.7 5.2 1.6 1.6 3.9 2.3 5.2 1 1.3-1 1-3.3-.7-5.2-1.6-1.6-3.9-2.3-5.2-1m-10.8-8.1c-.7 1.3.3 2.9 2.3 3.9 1.6 1 3.6.7 4.3-.7.7-1.3-.3-2.9-2.3-3.9-2-.6-3.6-.3-4.3.7m32.4 35.6c-1.6 1.3-1 4.3 1.3 6.2 2.3 2.3 5.2 2.6 6.5 1 1.3-1.3.7-4.3-1.3-6.2-2.2-2.3-5.2-2.6-6.5-1m-11.4-14.7c-1.6 1-1.6 3.6 0 5.9s4.3 3.3 5.6 2.3c1.6-1.3 1.6-3.9 0-6.2-1.4-2.3-4-3.3-5.6-2"/></svg>
+    </a>
+  
+    
+    
+    
+    
+      
+      
+    
+    <a href="https://www.linkedin.com/in/likhithkanigolla/" target="_blank" rel="noopener" title="www.linkedin.com" class="md-social__link">
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512"><!--! Font Awesome Free 6.7.2 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2024 Fonticons, Inc.--><path d="M416 32H31.9C14.3 32 0 46.5 0 64.3v383.4C0 465.5 14.3 480 31.9 480H416c17.6 0 32-14.5 32-32.3V64.3c0-17.8-14.4-32.3-32-32.3M135.4 416H69V202.2h66.5V416zm-33.2-243c-21.3 0-38.5-17.3-38.5-38.5S80.9 96 102.2 96c21.2 0 38.5 17.3 38.5 38.5 0 21.3-17.2 38.5-38.5 38.5m282.1 243h-66.4V312c0-24.8-.5-56.7-34.5-56.7-34.6 0-39.9 27-39.9 54.9V416h-66.4V202.2h63.7v29.2h.9c8.9-16.8 30.6-34.5 62.9-34.5 67.2 0 79.7 44.3 79.7 101.9z"/></svg>
+    </a>
+  
+</div>
+      
+    </div>
+  </div>
+</footer>
+      
+    </div>
+    <div class="md-dialog" data-md-component="dialog">
+      <div class="md-dialog__inner md-typeset"></div>
+    </div>
+    
+    
+    
+      
+      <script id="__config" type="application/json">{"base": "../..", "features": ["navigation.tabs", "navigation.sections", "navigation.top", "search.highlight", "search.suggest"], "search": "../../assets/javascripts/workers/search.f8cc74c7.min.js", "tags": null, "translations": {"clipboard.copied": "Copied to clipboard", "clipboard.copy": "Copy to clipboard", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.placeholder": "Type to start searching", "search.result.term.missing": "Missing", "select.version": "Select version"}, "version": null}</script>
+    
+    
+      <script src="../../assets/javascripts/bundle.c8b220af.min.js"></script>
+      
+    
+  </body>
+</html>
