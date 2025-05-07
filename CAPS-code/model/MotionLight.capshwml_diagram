@@ -1,0 +1,98 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<notation:Diagram xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:filesystem="filesystem" xmlns:notation="http://www.eclipse.org/gmf/runtime/1.0.3/notation" xmi:id="_4X2EINsvEe-5V8XiNIVloQ" type="CAPShwml" measurementUnit="Pixel">
+  <children xmi:type="notation:Node" xmi:id="_6B5yMNsvEe-5V8XiNIVloQ" type="2005">
+    <children xmi:type="notation:DecorationNode" xmi:id="_6B6ZQNsvEe-5V8XiNIVloQ" type="5024"/>
+    <children xmi:type="notation:BasicCompartment" xmi:id="_6B6ZQdsvEe-5V8XiNIVloQ" type="7025">
+      <styles xmi:type="notation:SortingStyle" xmi:id="_6B6ZQtsvEe-5V8XiNIVloQ"/>
+      <styles xmi:type="notation:FilteringStyle" xmi:id="_6B6ZQ9svEe-5V8XiNIVloQ"/>
+    </children>
+    <children xmi:type="notation:BasicCompartment" xmi:id="_6B6ZRNsvEe-5V8XiNIVloQ" type="7026">
+      <children xmi:type="notation:Node" xmi:id="_HysBgNswEe-5V8XiNIVloQ" type="3001">
+        <children xmi:type="notation:DecorationNode" xmi:id="_HysokNswEe-5V8XiNIVloQ" type="5001"/>
+        <children xmi:type="notation:BasicCompartment" xmi:id="_HysokdswEe-5V8XiNIVloQ" type="7005">
+          <children xmi:type="notation:Node" xmi:id="_MHbNINswEe-5V8XiNIVloQ" type="3015">
+            <children xmi:type="notation:DecorationNode" xmi:id="_MHbNJNswEe-5V8XiNIVloQ" type="5016"/>
+            <styles xmi:type="notation:DescriptionStyle" xmi:id="_MHbNIdswEe-5V8XiNIVloQ"/>
+            <styles xmi:type="notation:FontStyle" xmi:id="_MHbNItswEe-5V8XiNIVloQ" fontName="Segoe UI"/>
+            <element xmi:type="filesystem:Processor" href="FirstProgram.capshwml#//@nodes.0/@microcontroller/@processors.0"/>
+            <layoutConstraint xmi:type="notation:Bounds" xmi:id="_MHbNI9swEe-5V8XiNIVloQ"/>
+          </children>
+          <styles xmi:type="notation:SortingStyle" xmi:id="_HysoktswEe-5V8XiNIVloQ"/>
+          <styles xmi:type="notation:FilteringStyle" xmi:id="_Hysok9swEe-5V8XiNIVloQ"/>
+        </children>
+        <children xmi:type="notation:BasicCompartment" xmi:id="_HysolNswEe-5V8XiNIVloQ" type="7006">
+          <styles xmi:type="notation:SortingStyle" xmi:id="_HysoldswEe-5V8XiNIVloQ"/>
+          <styles xmi:type="notation:FilteringStyle" xmi:id="_HysoltswEe-5V8XiNIVloQ"/>
+        </children>
+        <children xmi:type="notation:BasicCompartment" xmi:id="_Hysol9swEe-5V8XiNIVloQ" type="7007">
+          <styles xmi:type="notation:SortingStyle" xmi:id="_HysomNswEe-5V8XiNIVloQ"/>
+          <styles xmi:type="notation:FilteringStyle" xmi:id="_HysomdswEe-5V8XiNIVloQ"/>
+        </children>
+        <children xmi:type="notation:BasicCompartment" xmi:id="_HysomtswEe-5V8XiNIVloQ" type="7008">
+          <styles xmi:type="notation:SortingStyle" xmi:id="_Hysom9swEe-5V8XiNIVloQ"/>
+          <styles xmi:type="notation:FilteringStyle" xmi:id="_HysonNswEe-5V8XiNIVloQ"/>
+        </children>
+        <children xmi:type="notation:BasicCompartment" xmi:id="_HytPoNswEe-5V8XiNIVloQ" type="7009">
+          <children xmi:type="notation:Node" xmi:id="_SgwGsNswEe-5V8XiNIVloQ" type="3012">
+            <children xmi:type="notation:DecorationNode" xmi:id="_SgwtwNswEe-5V8XiNIVloQ" type="5013"/>
+            <styles xmi:type="notation:DescriptionStyle" xmi:id="_SgwGsdswEe-5V8XiNIVloQ"/>
+            <styles xmi:type="notation:FontStyle" xmi:id="_SgwGstswEe-5V8XiNIVloQ" fontName="Segoe UI"/>
+            <element xmi:type="filesystem:VolatileMemory" href="FirstProgram.capshwml#//@nodes.0/@microcontroller/@memory"/>
+            <layoutConstraint xmi:type="notation:Bounds" xmi:id="_SgwGs9swEe-5V8XiNIVloQ"/>
+          </children>
+          <styles xmi:type="notation:SortingStyle" xmi:id="_HytPodswEe-5V8XiNIVloQ"/>
+          <styles xmi:type="notation:FilteringStyle" xmi:id="_HytPotswEe-5V8XiNIVloQ"/>
+        </children>
+        <children xmi:type="notation:BasicCompartment" xmi:id="_HytPo9swEe-5V8XiNIVloQ" type="7010">
+          <styles xmi:type="notation:SortingStyle" xmi:id="_HytPpNswEe-5V8XiNIVloQ"/>
+          <styles xmi:type="notation:FilteringStyle" xmi:id="_HytPpdswEe-5V8XiNIVloQ"/>
+        </children>
+        <children xmi:type="notation:BasicCompartment" xmi:id="_HytPptswEe-5V8XiNIVloQ" type="7011">
+          <styles xmi:type="notation:SortingStyle" xmi:id="_HytPp9swEe-5V8XiNIVloQ"/>
+          <styles xmi:type="notation:FilteringStyle" xmi:id="_HytPqNswEe-5V8XiNIVloQ"/>
+        </children>
+        <children xmi:type="notation:BasicCompartment" xmi:id="_HytPqdswEe-5V8XiNIVloQ" type="7012">
+          <styles xmi:type="notation:SortingStyle" xmi:id="_HytPqtswEe-5V8XiNIVloQ"/>
+          <styles xmi:type="notation:FilteringStyle" xmi:id="_HytPq9swEe-5V8XiNIVloQ"/>
+        </children>
+        <styles xmi:type="notation:DescriptionStyle" xmi:id="_HysBgdswEe-5V8XiNIVloQ"/>
+        <styles xmi:type="notation:FontStyle" xmi:id="_HysBgtswEe-5V8XiNIVloQ" fontName="Segoe UI"/>
+        <styles xmi:type="notation:FillStyle" xmi:id="_HysBg9swEe-5V8XiNIVloQ"/>
+        <styles xmi:type="notation:HintedDiagramLinkStyle" xmi:id="_HysBhNswEe-5V8XiNIVloQ"/>
+        <element xmi:type="filesystem:Microcontroller" href="FirstProgram.capshwml#//@nodes.0/@microcontroller"/>
+        <layoutConstraint xmi:type="notation:Bounds" xmi:id="_HysBhdswEe-5V8XiNIVloQ" x="13" y="1" width="361" height="274"/>
+      </children>
+    </children>
+    <children xmi:type="notation:BasicCompartment" xmi:id="_6B7AUNsvEe-5V8XiNIVloQ" type="7027">
+      <styles xmi:type="notation:SortingStyle" xmi:id="_6B7AUdsvEe-5V8XiNIVloQ"/>
+      <styles xmi:type="notation:FilteringStyle" xmi:id="_6B7AUtsvEe-5V8XiNIVloQ"/>
+    </children>
+    <children xmi:type="notation:BasicCompartment" xmi:id="_6B7AU9svEe-5V8XiNIVloQ" type="7028">
+      <styles xmi:type="notation:SortingStyle" xmi:id="_6B7AVNsvEe-5V8XiNIVloQ"/>
+      <styles xmi:type="notation:FilteringStyle" xmi:id="_6B7AVdsvEe-5V8XiNIVloQ"/>
+    </children>
+    <children xmi:type="notation:Node" xmi:id="_dVvTQNswEe-5V8XiNIVloQ" type="3004">
+      <children xmi:type="notation:DecorationNode" xmi:id="_dVvTRdswEe-5V8XiNIVloQ" type="5005"/>
+      <styles xmi:type="notation:DescriptionStyle" xmi:id="_dVvTQdswEe-5V8XiNIVloQ"/>
+      <styles xmi:type="notation:FontStyle" xmi:id="_dVvTQtswEe-5V8XiNIVloQ" fontName="Segoe UI"/>
+      <styles xmi:type="notation:FillStyle" xmi:id="_dVvTQ9swEe-5V8XiNIVloQ"/>
+      <element xmi:type="filesystem:ContinuousEnergySource" href="FirstProgram.capshwml#//@nodes.0/@energySources.0"/>
+      <layoutConstraint xmi:type="notation:Bounds" xmi:id="_dVvTRNswEe-5V8XiNIVloQ" x="167" y="372"/>
+    </children>
+    <children xmi:type="notation:Shape" xmi:id="_pp16cCblEfCHbaECMzH8Qg" type="3024" fontName="Segoe UI">
+      <children xmi:type="notation:DecorationNode" xmi:id="_pp2hgCblEfCHbaECMzH8Qg" type="5029">
+        <layoutConstraint xmi:type="notation:Location" xmi:id="_pp2hgSblEfCHbaECMzH8Qg" y="5"/>
+      </children>
+      <element xmi:type="filesystem:OccupancySensor" href="FirstProgram.capshwml#//@nodes.0/@OccupancySensors.0"/>
+      <layoutConstraint xmi:type="notation:Bounds" xmi:id="_pp16cSblEfCHbaECMzH8Qg"/>
+    </children>
+    <styles xmi:type="notation:DescriptionStyle" xmi:id="_6B5yMdsvEe-5V8XiNIVloQ"/>
+    <styles xmi:type="notation:FontStyle" xmi:id="_6B5yMtsvEe-5V8XiNIVloQ" fontName="Segoe UI"/>
+    <styles xmi:type="notation:FillStyle" xmi:id="_6B5yM9svEe-5V8XiNIVloQ"/>
+    <styles xmi:type="notation:HintedDiagramLinkStyle" xmi:id="_6B5yNNsvEe-5V8XiNIVloQ"/>
+    <element xmi:type="filesystem:Node" href="FirstProgram.capshwml#//@nodes.0"/>
+    <layoutConstraint xmi:type="notation:Bounds" xmi:id="_6B5yNdsvEe-5V8XiNIVloQ" x="241" y="126"/>
+  </children>
+  <styles xmi:type="notation:DiagramStyle" xmi:id="_4X2EIdsvEe-5V8XiNIVloQ"/>
+  <element xmi:type="filesystem:NodeSpecification" href="FirstProgram.capshwml#/"/>
+</notation:Diagram>

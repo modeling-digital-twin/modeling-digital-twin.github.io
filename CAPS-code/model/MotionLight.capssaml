@@ -1,0 +1,45 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<components:SoftwareArchitecture xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:components="components">
+  <SAElements xsi:type="components:Component" name="MotionSensor">
+    <ports xsi:type="components:OutMessagePort"/>
+    <modes xsi:type="components:InitialMode">
+      <behaviouralElements xsi:type="components:StartTimer" name="MotionTimer" cyclic="true" period="1000"/>
+      <behaviouralElements xsi:type="components:SenseOccupancy" name="SenseMotion" outgoing="//@SAElements.0/@modes.0/@behaviouralElements.3" incoming="//@SAElements.0/@modes.0/@behaviouralElements.5" dataDeclarationName="" data="" dataRecipient="//@SAElements.0/@applicationData.0"/>
+      <behaviouralElements xsi:type="components:UnicastSendMessage" name="MotionValue" incoming="//@SAElements.0/@modes.0/@behaviouralElements.3" data="MotionData" toMessagePorts="//@SAElements.0/@ports.0" dataRecipient="//@SAElements.0/@applicationData.0"/>
+      <behaviouralElements xsi:type="components:Link" source="//@SAElements.0/@modes.0/@behaviouralElements.1" target="//@SAElements.0/@modes.0/@behaviouralElements.2"/>
+      <behaviouralElements xsi:type="components:TimerFired" outgoing="//@SAElements.0/@modes.0/@behaviouralElements.5"/>
+      <behaviouralElements xsi:type="components:Link" source="//@SAElements.0/@modes.0/@behaviouralElements.4" target="//@SAElements.0/@modes.0/@behaviouralElements.1"/>
+    </modes>
+    <applicationData xsi:type="components:PrimitiveDataDeclaration" dataName="MotionData" value="0" type="boolean"/>
+  </SAElements>
+  <SAElements xsi:type="components:Component" name="Router">
+    <ports xsi:type="components:InMessagePort"/>
+    <ports xsi:type="components:OutMessagePort"/>
+    <ports xsi:type="components:OutMessagePort"/>
+    <modes xsi:type="components:InitialMode">
+      <behaviouralElements xsi:type="components:ReceiveMessage" name="Receive MotionValue" outgoing="//@SAElements.1/@modes.0/@behaviouralElements.4" dataRecipientName="MotionData" fromMessagePorts="//@SAElements.1/@ports.0" dataRecipient="//@SAElements.0/@applicationData.0"/>
+      <behaviouralElements xsi:type="components:Choice" outgoing="//@SAElements.1/@modes.0/@behaviouralElements.5 //@SAElements.1/@modes.0/@behaviouralElements.6" incoming="//@SAElements.1/@modes.0/@behaviouralElements.4"/>
+      <behaviouralElements xsi:type="components:UnicastSendMessage" name="SendOff" incoming="//@SAElements.1/@modes.0/@behaviouralElements.5" data="0" toMessagePorts="//@SAElements.1/@ports.2" dataRecipient="//@SAElements.1/@applicationData.0"/>
+      <behaviouralElements xsi:type="components:UnicastSendMessage" name="SendOn" incoming="//@SAElements.1/@modes.0/@behaviouralElements.6" data="1" toMessagePorts="//@SAElements.1/@ports.1" dataRecipient="//@SAElements.1/@applicationData.1" receiverName=""/>
+      <behaviouralElements xsi:type="components:Link" source="//@SAElements.1/@modes.0/@behaviouralElements.0" target="//@SAElements.1/@modes.0/@behaviouralElements.1"/>
+      <behaviouralElements xsi:type="components:Link" source="//@SAElements.1/@modes.0/@behaviouralElements.1" target="//@SAElements.1/@modes.0/@behaviouralElements.2" condition="if motion==0"/>
+      <behaviouralElements xsi:type="components:Link" source="//@SAElements.1/@modes.0/@behaviouralElements.1" target="//@SAElements.1/@modes.0/@behaviouralElements.3" condition="if motion==1"/>
+    </modes>
+    <applicationData xsi:type="components:PrimitiveDataDeclaration" dataName="Off" value="False" type="boolean"/>
+    <applicationData xsi:type="components:PrimitiveDataDeclaration" dataName="On" value="True" type="boolean"/>
+  </SAElements>
+  <SAElements xsi:type="components:Component" name="Light">
+    <ports xsi:type="components:InMessagePort"/>
+    <ports xsi:type="components:InMessagePort"/>
+    <modes xsi:type="components:InitialMode">
+      <behaviouralElements xsi:type="components:ReceiveMessage" name="ReceiveOn" outgoing="//@SAElements.2/@modes.0/@behaviouralElements.4" dataRecipientName="" fromMessagePorts="//@SAElements.2/@ports.1"/>
+      <behaviouralElements xsi:type="components:ReceiveMessage" name="ReceiveOff" outgoing="//@SAElements.2/@modes.0/@behaviouralElements.3" fromMessagePorts="//@SAElements.2/@ports.0"/>
+      <behaviouralElements xsi:type="components:Actuate" incoming="//@SAElements.2/@modes.0/@behaviouralElements.3 //@SAElements.2/@modes.0/@behaviouralElements.4"/>
+      <behaviouralElements xsi:type="components:Link" name="" source="//@SAElements.2/@modes.0/@behaviouralElements.1" target="//@SAElements.2/@modes.0/@behaviouralElements.2" condition="0"/>
+      <behaviouralElements xsi:type="components:Link" source="//@SAElements.2/@modes.0/@behaviouralElements.0" target="//@SAElements.2/@modes.0/@behaviouralElements.2" condition="1"/>
+    </modes>
+  </SAElements>
+  <SAElements xsi:type="components:Connection" source="//@SAElements.0/@ports.0" target="//@SAElements.1/@ports.0"/>
+  <SAElements xsi:type="components:Connection" source="//@SAElements.1/@ports.1" target="//@SAElements.2/@ports.1"/>
+  <SAElements xsi:type="components:Connection" source="//@SAElements.1/@ports.2" target="//@SAElements.2/@ports.0"/>
+</components:SoftwareArchitecture>

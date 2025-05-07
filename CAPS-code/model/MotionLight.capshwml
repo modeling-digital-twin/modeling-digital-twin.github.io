@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<filesystem:NodeSpecification xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:filesystem="filesystem">
+  <nodes name="Occupancy Sensor" OS="TinyOS" macProtocol="ZIGBEE" routingProtocol="GEAR">
+    <energySources xsi:type="filesystem:ContinuousEnergySource" name="Electricity"/>
+    <OccupancySensors name="OccupancySensor"/>
+    <microcontroller>
+      <processors name="Atmel Atmega328" frequency="120" cpi="1.0"/>
+      <memory name="RAM" size="2"/>
+    </microcontroller>
+  </nodes>
+</filesystem:NodeSpecification>
