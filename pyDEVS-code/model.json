@@ -1,0 +1,209 @@
+{
+  "components": [
+    {
+      "id": "c1",
+      "name": "MotionSensor",
+      "type": "atomic",
+      "role": "sensor",
+      "ports": {
+        "in": [],
+        "out": [
+          "out_0"
+        ]
+      },
+      "parameters": {
+        "MotionData": {
+          "type": "boolean",
+          "initialValue": "0"
+        }
+      },
+      "timers": [
+        {
+          "name": "MotionTimer",
+          "cyclic": true,
+          "period": 1000
+        }
+      ],
+      "behaviour": [
+        {
+          "type": "StartTimer",
+          "name": "MotionTimer"
+        },
+        {
+          "type": "SenseOccupancy",
+          "name": "SenseMotion",
+          "incoming": "TimerFired",
+          "outgoing": "MotionValue",
+          "dataRecipient": "MotionData"
+        },
+        {
+          "type": "UnicastSendMessage",
+          "name": "MotionValue",
+          "incoming": "SenseMotion",
+          "data": "MotionData",
+          "dataRecipient": "MotionData"
+        }
+      ],
+      "connectionsInternal": [
+        {
+          "from": "TimerFired",
+          "to": "SenseMotion"
+        },
+        {
+          "from": "SenseMotion",
+          "to": "MotionValue"
+        }
+      ]
+    },
+    {
+      "id": "c2",
+      "name": "Router",
+      "type": "coupled",
+      "role": "controller",
+      "ports": {
+        "in": [
+          "in_0"
+        ],
+        "out": [
+          "out_0",
+          "out_1"
+        ]
+      },
+      "parameters": {
+        "Off": {
+          "type": "boolean",
+          "initialValue": "False"
+        },
+        "On": {
+          "type": "boolean",
+          "initialValue": "True"
+        }
+      },
+      "timers": [],
+      "behaviour": [
+        {
+          "type": "ReceiveMessage",
+          "name": "Receive MotionValue",
+          "outgoing": "Choice",
+          "dataRecipientName": "MotionData",
+          "dataRecipient": "MotionData"
+        },
+        {
+          "type": "Choice",
+          "name": "Choice",
+          "incoming": "Receive MotionValue",
+          "outgoing": [
+            "SendOff",
+            "SendOn"
+          ]
+        },
+        {
+          "type": "UnicastSendMessage",
+          "name": "SendOff",
+          "incoming": "Choice",
+          "data": "0",
+          "dataRecipient": "Off"
+        },
+        {
+          "type": "UnicastSendMessage",
+          "name": "SendOn",
+          "incoming": "Choice",
+          "data": "1",
+          "dataRecipient": "On"
+        }
+      ],
+      "connectionsInternal": [
+        {
+          "from": "Receive MotionValue",
+          "to": "Choice"
+        },
+        {
+          "from": "Choice",
+          "to": "SendOff",
+          "condition": {
+            "left": "motion",
+            "operator": "==",
+            "right": "0"
+          }
+        },
+        {
+          "from": "Choice",
+          "to": "SendOn",
+          "condition": {
+            "left": "motion",
+            "operator": "==",
+            "right": "1"
+          }
+        }
+      ]
+    },
+    {
+      "id": "c3",
+      "name": "Light",
+      "type": "atomic",
+      "role": "actuator",
+      "ports": {
+        "in": [
+          "in_0",
+          "in_1"
+        ],
+        "out": []
+      },
+      "parameters": {},
+      "timers": [],
+      "behaviour": [
+        {
+          "type": "ReceiveMessage",
+          "name": "ReceiveOn",
+          "outgoing": "Actuate",
+          "dataRecipientName": ""
+        },
+        {
+          "type": "ReceiveMessage",
+          "name": "ReceiveOff",
+          "outgoing": "Actuate",
+          "dataRecipientName": ""
+        },
+        {
+          "type": "Actuate",
+          "name": "Actuate",
+          "incoming": [
+            "ReceiveOff",
+            "ReceiveOn"
+          ]
+        }
+      ],
+      "connectionsInternal": [
+        {
+          "from": "ReceiveOff",
+          "to": "Actuate",
+          "condition": "0"
+        },
+        {
+          "from": "ReceiveOn",
+          "to": "Actuate",
+          "condition": "1"
+        }
+      ]
+    }
+  ],
+  "connections": [
+    {
+      "from": "c1.out_0",
+      "to": "c2.in_0"
+    },
+    {
+      "from": "c2.out_0",
+      "to": "c3.in_1"
+    },
+    {
+      "from": "c2.out_1",
+      "to": "c3.in_0"
+    }
+  ],
+  "metadata": {
+    "system": "MotionSensor \u2192 Router \u2192 Light",
+    "generatedFor": "PyDEVS",
+    "timestamp": "auto-generated"
+  }
+}

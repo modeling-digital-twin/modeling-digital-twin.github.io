@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>System Simulation Viewer</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <div class="container">
+        <div class="main-content">
+            <h1>System Diagram</h1>
+            <div class="diagram-container">
+                <svg id="system-diagram" width="100%" height="600"></svg>
+            </div>
+        </div>
+        <div class="sidebar">
+            <h2>Simulation Control</h2>
+            <div class="control-buttons">
+                <button id="start-sim-btn">Start Simulation</button>
+                <button id="stop-sim-btn" disabled>Stop Simulation</button>
+                <button id="restart-sim-btn">Restart Simulation</button>
+            </div>
+            <div class="info">
+                <h3>Current Time: <span id="sim-time">0.00</span></h3>
+            </div>
+            <h2>Event Log</h2>
+            <div id="sim-log" class="log-container">
+                <p>Simulation not started.</p>
+            </div>
+            <h2>Component Legend</h2>
+            <ul class="legend">
+                <!-- Legend items will be dynamically generated -->
+            </ul>
+        </div>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>

@@ -1,0 +1,212 @@
+/* Auto-generated component styles */
+body {
+    font-family: sans-serif;
+    margin: 0;
+    padding: 0;
+    background-color: #f4f4f4;
+}
+
+.container {
+    display: flex;
+    width: 95%;
+    max-width: 1600px;
+    margin: 20px auto;
+    background-color: #fff;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    border-radius: 8px;
+}
+
+.main-content {
+    flex: 3;
+    padding: 20px;
+    border-right: 1px solid #ccc;
+}
+
+.sidebar {
+    flex: 1;
+    padding: 20px;
+    background-color: #e9e9e9;
+}
+
+.diagram-container {
+    position: relative;
+    min-height: 500px;
+    border: 1px solid #ddd;
+    background-color: #ffffff;
+}
+
+/* Component base styles */
+.component rect {
+    stroke: #333;
+    stroke-width: 1.5;
+    rx: 5;
+    ry: 5;
+    filter: drop-shadow(2px 2px 2px rgba(0,0,0,0.2));
+}
+
+.component text {
+    font-size: 12px;
+    font-weight: bold;
+    text-anchor: middle;
+    dominant-baseline: middle;
+    fill: #fff;
+}
+
+.component .type-label {
+    font-size: 10px;
+    font-style: italic;
+    fill: #eee;
+}
+
+.component .data-value {
+    font-size: 12px;
+    font-weight: bold;
+    text-anchor: middle;
+    fill: #ffff00;
+    opacity: 0;
+}
+
+.component.with-data .data-value {
+    opacity: 1;
+}
+
+/* Connection line styles */
+.connection {
+    stroke-width: 2;
+    fill: none;
+    opacity: 0.7;
+}
+
+.connection.active {
+    stroke-width: 3;
+    stroke-opacity: 1 !important;
+    animation: flow-pulse 0.5s ease-in-out;
+}
+
+/* Animation styles */
+@keyframes flow-pulse {
+    0% { stroke-dasharray: none; stroke-opacity: 0.7; }
+    50% { stroke-dasharray: 10 5; stroke-opacity: 1; }
+    100% { stroke-dasharray: none; stroke-opacity: 0.9; }
+}
+
+@keyframes data-pulse {
+    0% { font-size: 10px; opacity: 0.7; }
+    50% { font-size: 14px; opacity: 1; }
+    100% { font-size: 12px; opacity: 0.9; }
+}
+
+.component .data-value.animate {
+    animation: data-pulse 0.5s ease-in-out;
+}
+
+.component.active rect {
+    stroke: #ffdd57;
+    stroke-width: 3;
+    transform: scale(1.05);
+}
+
+/* Legend styles */
+.legend {
+    list-style: none;
+    padding: 0;
+    margin-top: 20px;
+}
+
+.legend li {
+    margin-bottom: 10px;
+    display: flex;
+    align-items: center;
+}
+
+.legend-color {
+    display: inline-block;
+    width: 18px;
+    height: 18px;
+    margin-right: 10px;
+    border: 1px solid #555;
+    border-radius: 3px;
+}
+
+/* Controls and log */
+.control-buttons {
+    margin-bottom: 20px;
+    display: flex;
+    gap: 10px;
+    flex-wrap: wrap;
+}
+
+#start-sim-btn, #stop-sim-btn, #restart-sim-btn {
+    padding: 10px 15px;
+    font-size: 16px;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+}
+
+#start-sim-btn {
+    background-color: #3498db;
+}
+
+#stop-sim-btn {
+    background-color: #e74c3c;
+}
+
+#restart-sim-btn {
+    background-color: #2ecc71;
+}
+
+#start-sim-btn:hover {
+    background-color: #2980b9;
+}
+
+#stop-sim-btn:hover {
+    background-color: #c0392b;
+}
+
+#restart-sim-btn:hover {
+    background-color: #27ae60;
+}
+
+button:disabled {
+    opacity: 0.5;
+    cursor: not-allowed;
+}
+
+.log-container {
+    background-color: #333;
+    color: #0f0;
+    padding: 10px;
+    font-family: 'Courier New', monospace;
+    font-size: 12px;
+    overflow-y: auto;
+    border-radius: 4px;
+    height: 200px;
+}
+
+/* Custom component colors */
+
+.component-c1 rect { 
+    fill: #2980b9; 
+}
+
+.legend-item-c1 {
+    background-color: #2980b9;
+}
+
+.component-c2 rect { 
+    fill: #8e44ad; 
+}
+
+.legend-item-c2 {
+    background-color: #8e44ad;
+}
+
+.component-c3 rect { 
+    fill: #27ae60; 
+}
+
+.legend-item-c3 {
+    background-color: #27ae60;
+}
